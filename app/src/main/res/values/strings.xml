@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">javas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--landing page-->
+    <string name="landing_page_title">JaVas</string>
+    <string name="Landing_page_text">Mari Vaksinasi Bersama Kami</string>
+
+
+    <!--Login page-->
+    <string name="login_page_title">Login</string>
+    <string name="login_email_input">Email</string>
+    <string name="login_password_input">Password</string>
+
+    <!--Button -->
+    <string name="login_btn_txt">Log In</string>
+    <string name="signin_btn_txt">Sign In</string>
 </resources>
