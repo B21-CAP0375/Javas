@@ -15,5 +15,6 @@
 
     <!--Button -->
     <string name="login_btn_txt">Log In</string>
-    <string name="signin_btn_txt">Sign In</string>
+    <string name="register_btn_txt">Daftar</string>
+    <string name="register_btn_txt_borderless">Ingin membuat akun</string>
 </resources>

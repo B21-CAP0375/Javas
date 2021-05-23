@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.LandingPage.LandingPage">
 
-    <!-- TODO: Update blank fragment layout -->
 
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -52,10 +51,10 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_signin"
+        android:id="@+id/btn_register"
         android:layout_width="264dp"
         android:layout_height="40dp"
-        android:text="@string/signin_btn_txt"
+        android:text="@string/register_btn_txt"
         android:textSize="16sp"
         android:textColor="#B9B9B9"
         android:background="@drawable/background_button_grey_primary"
