@@ -35,7 +35,7 @@ class LoginFragment : Fragment() {
             Toast.makeText(context, "Login as ${binding.emailEdtxt.text} with password ${binding.passwordEdtxt.text}", Toast.LENGTH_SHORT).show()
         }
         binding.btnRegisterLoginPage.setOnClickListener{
-            Toast.makeText(context, "Register btn", Toast.LENGTH_SHORT).show()
+            view.findNavController().navigate(R.id.action_loginFragment_to_registerOneFragment)
         }
     }
 

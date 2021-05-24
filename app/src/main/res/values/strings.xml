@@ -13,9 +13,27 @@
     <string name="login_email_input">Email</string>
     <string name="login_password_input">Password</string>
 
+
+    <!--register page-->
+    <string name="register_page_title">Register</string>
+    <string name="register_page_title_number">1 of 3</string>
+    <string name="register_page_title_number_two">2 of 3</string>
+    <string name="register_page_title_number_three">3 of 3</string>
+    <string name="register_email_input">Email</string>
+    <string name="register_password_input">Password</string>
+    <string name="register_nik_input">NIK</string>
+    <string name="register_name_input">Name</string>
+    <string name="register_dob_input">Tanggal Lahir</string>
+    <string name="register_birth_place_input">Tempat Lahir</string>
+    <string name="register_phone_input">No.Handphone</string>
+    <string name="register_alamat_input">Tempat Lahir</string>
+
+
     <!--Button -->
     <string name="login_btn_txt">Log In</string>
     <string name="register_btn_txt">Daftar</string>
     <string name="register_btn_txt_borderless">Ingin membuat akun</string>
+    <string name="register_continue_btn_txt">Lanjutkan</string>
+    <string name="register_back_btn_txt">Kembali</string>
 
 </resources>

@@ -38,7 +38,7 @@ class LandingPageFragment : Fragment() {
             view.findNavController().navigate(R.id.action_landingPageFragment_to_loginFragment)
         }
         binding.btnRegister.setOnClickListener{
-            Toast.makeText(context, "Register btn", Toast.LENGTH_SHORT).show()
+            view.findNavController().navigate(R.id.action_landingPageFragment_to_registerOneFragment)
         }
     }
 

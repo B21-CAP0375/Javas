@@ -21,7 +21,11 @@
         android:id="@+id/loginFragment"
         android:name="com.example.javas.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerOneFragment"
+            app:destination="@id/registerOneFragment" />
+    </fragment>
     <fragment
         android:id="@+id/landingPageFragment"
         android:name="com.example.javas.ui.landingpage.LandingPageFragment"
@@ -30,5 +34,64 @@
         <action
             android:id="@+id/action_landingPageFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_registerOneFragment"
+            app:destination="@id/registerOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerOneFragment"
+        android:name="com.example.javas.ui.register.RegisterOneFragment"
+        android:label="fragment_register_one"
+        tools:layout="@layout/fragment_register_one" >
+        <action
+            android:id="@+id/action_registerOneFragment_to_registerTwoFragment"
+            app:destination="@id/registerTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerTwoFragment"
+        android:name="com.example.javas.ui.register.RegisterTwoFragment"
+        android:label="fragment_register_two"
+        tools:layout="@layout/fragment_register_two" >
+        <argument
+            android:name="email"
+            app:argType="string"
+            android:defaultValue="email register" />
+        <argument
+            android:name="password"
+            android:defaultValue="password"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_registerTwoFragment_to_registerThreeFragment"
+            app:destination="@id/registerThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerThreeFragment"
+        android:name="com.example.javas.ui.register.RegisterThreeFragment"
+        android:label="fragment_register_three"
+        tools:layout="@layout/fragment_register_three" >
+        <argument
+            android:name="email"
+            app:argType="string"
+            android:defaultValue="email register" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue="password register" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="nama register" />
+        <argument
+            android:name="bornPlace"
+            app:argType="string"
+            android:defaultValue="tempat lahir register" />
+        <argument
+            android:name="dateOfBirth"
+            app:argType="string"
+            android:defaultValue="dob" />
+        <argument
+            android:name="NIK"
+            app:argType="string"
+            android:defaultValue="00000000" />
     </fragment>
 </navigation>
