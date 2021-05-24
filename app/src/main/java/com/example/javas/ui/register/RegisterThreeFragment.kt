@@ -5,21 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.javas.R
 import com.example.javas.databinding.FragmentRegisterOneBinding
+import com.example.javas.databinding.FragmentRegisterThreeBinding
 
 
 class RegisterThreeFragment : Fragment() {
 
-    private lateinit var  _binding: FragmentRegisterOneBinding
+    private lateinit var  _binding: FragmentRegisterThreeBinding
     private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRegisterOneBinding.inflate(inflater, container, false)
+        _binding = FragmentRegisterThreeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -34,8 +36,9 @@ class RegisterThreeFragment : Fragment() {
 
 
 
-        binding.btnContinueLoginPage.setOnClickListener {
 
+        binding.btnContinueLoginPage.setOnClickListener {
+            Toast.makeText(context, "$email", Toast.LENGTH_SHORT).show()
         }
     }
 }
