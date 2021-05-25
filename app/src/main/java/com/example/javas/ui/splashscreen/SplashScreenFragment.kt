@@ -34,7 +34,7 @@ class SplashScreenFragment : Fragment()  {
         handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
             view.findNavController().navigate(R.id.action_splashScreenFragment_to_landingPageFragment)
-        },3000)
+        },1000)
 
     }
 }

@@ -46,7 +46,9 @@ class RegisterOneFragment : Fragment() {
             toRegisterTwo.email = binding.emailEdtxt.text.toString()
             toRegisterTwo.password = binding.passwordEdtxt.text.toString()
 
-            view.findNavController().navigate(toRegisterTwo)
+            if (validate()){
+                view.findNavController().navigate(toRegisterTwo)
+            }
         }
         binding.btnBackRegisterPage.setOnClickListener{
             view.findNavController().navigate(R.id.action_registerOneFragment_to_landingPageFragment)
@@ -64,16 +66,19 @@ class RegisterOneFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
-    //jika ingin memberi animasi pada tombol on back pressed
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        val callback = object : OnBackPressedCallback(true) {
-//            override fun handleOnBackPressed() {
-//                getActivity()?.moveTaskToBack(true);
-//                getActivity()?.finish();
-//            }
-//        }
-//        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
-//    }
+    private fun validate():Boolean{
+        var  valid = true
+        val emailCheck = binding.emailEdtxt.text
+        val passCheck = binding.passwordEdtxt.text
+
+
+        if (emailCheck.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(emailCheck).matches()) {
+            valid=false
+        }
+        if (passCheck.isEmpty() || passCheck.length < 6 || passCheck.length > 10){
+            valid=false
+        }
+        return valid
+    }
 
 }

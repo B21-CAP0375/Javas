@@ -35,7 +35,9 @@ class RegisterTwoFragment : Fragment() {
         val password = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).password
         val name = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).name
         val nik = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).nik
-        val dob = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).dob
+        val dobDay = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).day
+        val dobMonth = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).month
+        val dobYear = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).year
         val place = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).birthPlace
         val gender = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).gender
         val backPressed = RegisterTwoFragmentArgs.fromBundle(arguments as Bundle).backPressed
@@ -43,22 +45,30 @@ class RegisterTwoFragment : Fragment() {
         if (backPressed){
             binding.nameEdtxt.setText(name)
             binding.nikEdtxt.setText(nik)
-            binding.dobEdtxt.setText(dob)
+            binding.dobEdtxtDay.setText(dobDay)
+            binding.dobEdtxtMonth.setText(dobMonth)
+            binding.dobEdtxtYear.setText(dobYear)
             binding.birthPlaceEdtxt.setText(place)
             binding.genderEdtxt.setText(gender)
         }
 
 
         binding.btnContinueLoginPage.setOnClickListener{
+            val date = binding.dobEdtxtDay.text.toString() +binding.dobEdtxtMonth.text.toString() +binding.dobEdtxtYear.text.toString()
             val toRegisterThree = RegisterTwoFragmentDirections.actionRegisterTwoFragmentToRegisterThreeFragment()
             toRegisterThree.email = email
             toRegisterThree.password = password
             toRegisterThree.name = binding.nameEdtxt.text.toString()
             toRegisterThree.nik = binding.nikEdtxt.text.toString()
-            toRegisterThree.dateOfBirth = binding.dobEdtxt.text.toString()
+            toRegisterThree.dateOfBirth = date
+            toRegisterThree.day= binding.dobEdtxtDay.text.toString()
+            toRegisterThree.month= binding.dobEdtxtMonth.text.toString()
+            toRegisterThree.year= binding.dobEdtxtYear.text.toString()
             toRegisterThree.bornPlace = binding.birthPlaceEdtxt.text.toString()
             toRegisterThree.kelamin = binding.genderEdtxt.text.toString()
-            view.findNavController().navigate(toRegisterThree)
+            if (validate()){
+                view.findNavController().navigate(toRegisterThree)
+            }
         }
 
         binding.btnBackRegisterPage.setOnClickListener{
@@ -80,6 +90,43 @@ class RegisterTwoFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
+
+    private fun validate():Boolean{
+        var  valid = true
+        val nameCheck = binding.nameEdtxt.text
+        val nikCheck = binding.nikEdtxt.text
+        val dobDayCheck = binding.dobEdtxtDay.text
+        val dobMonthCheck = binding.dobEdtxtMonth.text
+        val dobYearCheck = binding.dobEdtxtYear.text
+
+       val placeCheck = binding.birthPlaceEdtxt.text
+        val genderCheck = binding.genderEdtxt.text
+
+
+        if (nameCheck.isEmpty()) {
+            valid=false
+        }
+        if (nikCheck.isEmpty()||nikCheck.toString().length !=16){
+            valid=false
+        }
+
+        if (dobDayCheck.isEmpty()||dobMonthCheck.isEmpty()||dobYearCheck.isEmpty()
+            ||dobDayCheck.toString().toInt()>31||dobMonthCheck.toString().toInt()>12
+            ||dobYearCheck.toString().toInt()<1980||dobYearCheck.toString().toInt()>2021){
+            valid=false
+        }
+
+        if (placeCheck.isEmpty()){
+            valid=false
+        }
+        if (genderCheck.isEmpty()){
+            valid=false
+        }
+        if (genderCheck.toString()!="pria"&& genderCheck.toString()!="wanita"){
+            valid=false
+        }
+        return valid
+    }
 
 
 }

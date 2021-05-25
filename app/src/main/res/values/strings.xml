@@ -24,9 +24,19 @@
     <string name="register_nik_input">NIK</string>
     <string name="register_name_input">Name</string>
     <string name="register_dob_input">Tanggal Lahir</string>
+    <string name="register_dob_input_day">Hari</string>
+    <string name="register_dob_input_month">Bulan</string>
+    <string name="register_dob_input_year">Tahun</string>
     <string name="register_birth_place_input">Tempat Lahir</string>
     <string name="register_phone_input">No.Handphone</string>
     <string name="register_alamat_input">Tempat Tinggal</string>
+    <string name="register_gender_input">Jenis Kelamin</string>
+
+
+
+    <!--Home Page-->
+    <string name="home_page_title">Selamat Datang,</string>
+    <string name="home_page_user_title">Nama</string>
 
 
     <!--Button -->
@@ -35,6 +45,9 @@
     <string name="register_btn_txt_borderless">Ingin membuat akun</string>
     <string name="register_continue_btn_txt">Lanjutkan</string>
     <string name="register_back_btn_txt">Kembali</string>
-    <string name="register_gender_input">Jenis Kelamin</string>
+    <string name="register_register_btn_txt">Registrasi</string>
+    <string name="home_page_vaksinasi_btn_txt">Mendaftar Vaksinasi</string>
+    <string name="home_page_jadwal_btn_txt">Melihat Jadwal Vaksinasi</string>
+    <string name="home_page_profile_btn_txt">Profil Pengguna</string>
 
 </resources>

@@ -81,20 +81,64 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_dob_edtxt"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dob_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_gender_edtxt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_gender_edtxt">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/register_dob_input"
+        android:textSize="16sp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_dob_edtxt_day"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dob_title">
 
         <EditText
-            android:id="@+id/dob_edtxt"
+            android:id="@+id/dob_edtxt_day"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/register_dob_input"
+            android:hint="@string/register_dob_input_day"
+            android:inputType="date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_dob_edtxt_month"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/layout_dob_edtxt_day"
+        app:layout_constraintTop_toBottomOf="@id/dob_title">
+
+        <EditText
+            android:id="@+id/dob_edtxt_month"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/register_dob_input_month"
+            android:inputType="date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_dob_edtxt_year"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/layout_dob_edtxt_month"
+        app:layout_constraintTop_toBottomOf="@id/dob_title">
+
+        <EditText
+            android:id="@+id/dob_edtxt_year"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/register_dob_input_year"
             android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,7 +150,7 @@
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_dob_edtxt">
+        app:layout_constraintTop_toBottomOf="@id/layout_dob_edtxt_month">
 
         <EditText
             android:id="@+id/birth_place_edtxt"

@@ -36,14 +36,22 @@ class RegisterThreeFragment : Fragment() {
         val dob = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).dateOfBirth
         val place = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).bornPlace
         val gender = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).kelamin
-        val phone = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).phone
-        val address = binding.alamatEdtxt.text.toString()
+        val day = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).day
+        val month = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).month
+        val year = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).year
 
 
 
 
-        binding.btnContinueLoginPage.setOnClickListener {
-            Toast.makeText(context, "$email", Toast.LENGTH_SHORT).show()
+
+        //sebelum pindah masukan data registrasi ke dalam server
+        binding.btnRegisterRegisterPage.setOnClickListener {
+            val toHomePage = RegisterThreeFragmentDirections.actionRegisterThreeFragmentToHomePageFragment()
+            toHomePage.name=name
+
+            if (validate()){
+                view.findNavController().navigate(toHomePage)
+            }
         }
 
         binding.btnBackRegisterPage.setOnClickListener{
@@ -55,6 +63,9 @@ class RegisterThreeFragment : Fragment() {
             toRegisterTwo.dob=dob
             toRegisterTwo.birthPlace=place
             toRegisterTwo.gender=gender
+            toRegisterTwo.day=day
+            toRegisterTwo.month=month
+            toRegisterTwo.year=year
             toRegisterTwo.backPressed=true
             view.findNavController().navigate(toRegisterTwo)
         }
@@ -68,10 +79,27 @@ class RegisterThreeFragment : Fragment() {
                 toRegisterTwo.dob=dob
                 toRegisterTwo.birthPlace=place
                 toRegisterTwo.gender=gender
+                toRegisterTwo.day=day
+                toRegisterTwo.month=month
+                toRegisterTwo.year=year
                 toRegisterTwo.backPressed=true
                 view.findNavController().navigate(toRegisterTwo)
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
+
+    private fun validate():Boolean{
+        var  valid = true
+        val phoneCheck = binding.phoneEdtxt.text
+        val addressCheck = binding.alamatEdtxt.text
+
+        if (phoneCheck.isEmpty()||phoneCheck.toString().length!=12){
+            valid =false
+        }
+        if (addressCheck.isEmpty()){
+            valid=false
+        }
+        return valid
     }
 }

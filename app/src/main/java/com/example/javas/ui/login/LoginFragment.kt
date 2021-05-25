@@ -32,12 +32,28 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnLoginLoginPage.setOnClickListener {
-            Toast.makeText(context, "Login as ${binding.emailEdtxt.text} with password ${binding.passwordEdtxt.text}", Toast.LENGTH_SHORT).show()
+            if (validate()){
+                view.findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
+            }
         }
         binding.btnRegisterLoginPage.setOnClickListener{
             view.findNavController().navigate(R.id.action_loginFragment_to_registerOneFragment)
         }
     }
 
+    private fun validate():Boolean{
+        var  valid = true
+        val emailCheck = binding.emailEdtxt.text
+        val passCheck = binding.passwordEdtxt.text
+
+        //passcheck dan emailcheck mendapatkan data dari api
+        if (emailCheck.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(emailCheck).matches()) {
+            valid=false
+        }
+        if (passCheck.isEmpty() || passCheck.length < 6 || passCheck.length > 10){
+            valid=false
+        }
+        return valid
+    }
 
 }

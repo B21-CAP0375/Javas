@@ -27,6 +27,11 @@
             app:destination="@id/registerOneFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/landingPageFragment"
@@ -117,6 +122,18 @@
             android:name="backPressed"
             app:argType="boolean"
             android:defaultValue="false" />
+        <argument
+            android:name="day"
+            app:argType="string"
+            android:defaultValue="1" />
+        <argument
+            android:name="month"
+            app:argType="string"
+            android:defaultValue="2" />
+        <argument
+            android:name="year"
+            app:argType="string"
+            android:defaultValue="2000" />
     </fragment>
     <fragment
         android:id="@+id/registerThreeFragment"
@@ -168,5 +185,32 @@
             android:name="address"
             app:argType="string"
             android:defaultValue="address" />
+        <action
+            android:id="@+id/action_registerThreeFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@id/registerThreeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="day"
+            app:argType="string"
+            android:defaultValue="1" />
+        <argument
+            android:name="Month"
+            app:argType="string"
+            android:defaultValue="2" />
+        <argument
+            android:name="year"
+            app:argType="string"
+            android:defaultValue="1980" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.javas.ui.homepage.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
     </fragment>
 </navigation>
