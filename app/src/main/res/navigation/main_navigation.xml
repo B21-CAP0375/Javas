@@ -207,10 +207,45 @@
         android:id="@+id/homePageFragment"
         android:name="com.example.javas.ui.homepage.HomePageFragment"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" >
+        tools:layout="@layout/fragment_home_page">
         <argument
             android:name="name"
             app:argType="string"
             android:defaultValue="name" />
+        <action
+            android:id="@+id/action_homePageFragment_to_symptomOneFragment"
+            app:destination="@id/symptomOneFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/symptomOneFragment"
+        android:name="com.example.javas.SymptomOneFragment"
+        android:label="fragment_symptom_one"
+        tools:layout="@layout/fragment_symptom_one">
+        <action
+            android:id="@+id/action_symptomOneFragment_to_symptomTwoFragment"
+            app:destination="@id/symptomTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomTwoFragment"
+        android:name="com.example.javas.SymptomTwoFragment"
+        android:label="fragment_symptom_two"
+        tools:layout="@layout/fragment_symptom_two">
+        <action
+            android:id="@+id/action_symptomTwoFragment_to_symptomThreeFragment"
+            app:destination="@id/symptomThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomThreeFragment"
+        android:name="com.example.javas.SymptomThreeFragment"
+        android:label="fragment_symptom_three"
+        tools:layout="@layout/fragment_symptom_three">
+        <action
+            android:id="@+id/action_symptomThreeFragment_to_symptomFourFragment"
+            app:destination="@id/symptomFourFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomFourFragment"
+        android:name="com.example.javas.SymptomFourFragment"
+        android:label="fragment_symptom_four"
+        tools:layout="@layout/fragment_symptom_four" />
 </navigation>

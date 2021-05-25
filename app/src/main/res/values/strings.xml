@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">javas</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -33,7 +33,6 @@
     <string name="register_gender_input">Jenis Kelamin</string>
 
 
-
     <!--Home Page-->
     <string name="home_page_title">Selamat Datang,</string>
     <string name="home_page_user_title">Nama</string>
@@ -49,5 +48,15 @@
     <string name="home_page_vaksinasi_btn_txt">Mendaftar Vaksinasi</string>
     <string name="home_page_jadwal_btn_txt">Melihat Jadwal Vaksinasi</string>
     <string name="home_page_profile_btn_txt">Profil Pengguna</string>
+
+    <!--    Sympton Fragment-->
+    <string name="_1_4" tools:ignore="TypographyFractions">1/4</string>
+    <string name="_2_4">2/4</string>
+    <string name="_3_4" tools:ignore="TypographyFractions">3/4</string>
+    <string name="_4_4">4/4</string>
+    <string name="check_result">CHECK RESULT</string>
+    <string name="next">NEXT</string>
+    <!---->
+
 
 </resources>
