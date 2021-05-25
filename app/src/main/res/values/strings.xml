@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">javas</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--landing page-->
+    <string name="landing_page_title">JaVas</string>
+    <string name="Landing_page_text">Mari Vaksinasi Bersama Kami</string>
+
+
+    <!--Login page-->
+    <string name="login_page_title">Login</string>
+    <string name="login_email_input">Email</string>
+    <string name="login_password_input">Password</string>
+
+
+    <!--register page-->
+    <string name="register_page_title">Register</string>
+    <string name="register_page_title_number">1 of 3</string>
+    <string name="register_page_title_number_two">2 of 3</string>
+    <string name="register_page_title_number_three">3 of 3</string>
+    <string name="register_email_input">Email</string>
+    <string name="register_password_input">Password</string>
+    <string name="register_nik_input">NIK</string>
+    <string name="register_name_input">Name</string>
+    <string name="register_dob_input">Tanggal Lahir</string>
+    <string name="register_dob_input_day">Hari</string>
+    <string name="register_dob_input_month">Bulan</string>
+    <string name="register_dob_input_year">Tahun</string>
+    <string name="register_birth_place_input">Tempat Lahir</string>
+    <string name="register_phone_input">No.Handphone</string>
+    <string name="register_alamat_input">Tempat Tinggal</string>
+    <string name="register_gender_input">Jenis Kelamin</string>
+
+
+
+    <!--Home Page-->
+    <string name="home_page_title">Selamat Datang,</string>
+    <string name="home_page_user_title">Nama</string>
+
+
+    <!--Button -->
+    <string name="login_btn_txt">Log In</string>
+    <string name="register_btn_txt">Daftar</string>
+    <string name="register_btn_txt_borderless">Ingin membuat akun</string>
+    <string name="register_continue_btn_txt">Lanjutkan</string>
+    <string name="register_back_btn_txt">Kembali</string>
+    <string name="register_register_btn_txt">Registrasi</string>
+    <string name="home_page_vaksinasi_btn_txt">Mendaftar Vaksinasi</string>
+    <string name="home_page_jadwal_btn_txt">Melihat Jadwal Vaksinasi</string>
+    <string name="home_page_profile_btn_txt">Profil Pengguna</string>
+
 </resources>
