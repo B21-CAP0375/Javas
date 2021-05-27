@@ -1,4 +1,4 @@
-package com.example.javas
+package com.example.javas.ui.symptom
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -218,7 +218,7 @@
     </fragment>
     <fragment
         android:id="@+id/symptomOneFragment"
-        android:name="com.example.javas.SymptomOneFragment"
+        android:name="com.example.javas.ui.symptom.SymptomOneFragment"
         android:label="fragment_symptom_one"
         tools:layout="@layout/fragment_symptom_one">
         <action
@@ -227,7 +227,7 @@
     </fragment>
     <fragment
         android:id="@+id/symptomTwoFragment"
-        android:name="com.example.javas.SymptomTwoFragment"
+        android:name="com.example.javas.ui.symptom.SymptomTwoFragment"
         android:label="fragment_symptom_two"
         tools:layout="@layout/fragment_symptom_two">
         <action
@@ -236,7 +236,7 @@
     </fragment>
     <fragment
         android:id="@+id/symptomThreeFragment"
-        android:name="com.example.javas.SymptomThreeFragment"
+        android:name="com.example.javas.ui.symptom.SymptomThreeFragment"
         android:label="fragment_symptom_three"
         tools:layout="@layout/fragment_symptom_three">
         <action
@@ -245,7 +245,7 @@
     </fragment>
     <fragment
         android:id="@+id/symptomFourFragment"
-        android:name="com.example.javas.SymptomFourFragment"
+        android:name="com.example.javas.ui.symptom.SymptomFourFragment"
         android:label="fragment_symptom_four"
         tools:layout="@layout/fragment_symptom_four" />
 </navigation>

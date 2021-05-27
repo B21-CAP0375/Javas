@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.javas.R
 import com.example.javas.databinding.FragmentLandingPageBinding
 import com.example.javas.databinding.FragmentLoginBinding
+import com.example.javas.ui.register.RegisterThreeFragmentDirections
+import com.example.javas.utils.ViewModelFactory
 
 
 class LoginFragment : Fragment() {
@@ -17,6 +20,7 @@ class LoginFragment : Fragment() {
 
     private lateinit var  _binding: FragmentLoginBinding
     private val binding get() = _binding
+    private lateinit var  viewModel:LoginViewModel
 
 
 
@@ -31,11 +35,37 @@ class LoginFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        viewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
+
+
         binding.btnLoginLoginPage.setOnClickListener {
-            view.findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
-//            if (validate()){
-//                view.findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
-//            }
+            activity?.let {
+                val toHomePage = LoginFragmentDirections.actionLoginFragmentToHomePageFragment()
+                val docRef = viewModel.getUser(binding.emailEdtxt.text.toString())
+                docRef.get()
+                    .addOnSuccessListener { document ->
+                        if (document != null) {
+                            toHomePage.name= document.getString("email").toString()
+                            Toast.makeText(context, document.getString("email"), Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(context, "null", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(context, "failure", Toast.LENGTH_SHORT).show()
+                    }
+
+                viewModel.login(binding.emailEdtxt.text.toString(),binding.passwordEdtxt.text.toString())
+                    .addOnCompleteListener(it) { task ->
+                        if (task.isSuccessful) {
+                            view.findNavController().navigate(toHomePage)
+                            // If sign in fails, display a message to the user.
+                        } else{
+                        }
+                    }
+            }
         }
         binding.btnRegisterLoginPage.setOnClickListener{
             view.findNavController().navigate(R.id.action_loginFragment_to_registerOneFragment)

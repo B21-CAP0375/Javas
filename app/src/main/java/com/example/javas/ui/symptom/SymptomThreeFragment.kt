@@ -1,4 +1,4 @@
-package com.example.javas
+package com.example.javas.ui.symptom
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.javas.databinding.FragmentSymptomOneBinding
+import com.example.javas.R
+import com.example.javas.databinding.FragmentSymptomThreeBinding
 
 
-class SymptomOneFragment : Fragment() {
+class SymptomThreeFragment : Fragment() {
 
-    private lateinit var _binding: FragmentSymptomOneBinding
+    private lateinit var _binding: FragmentSymptomThreeBinding
     private val binding get() = _binding
 
 
@@ -19,7 +20,7 @@ class SymptomOneFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSymptomOneBinding.inflate(inflater, container, false)
+        _binding = FragmentSymptomThreeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -27,8 +28,9 @@ class SymptomOneFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnNextTwo.setOnClickListener {
-            view.findNavController().navigate(R.id.action_symptomOneFragment_to_symptomTwoFragment)
+        binding.btnNextFour.setOnClickListener {
+            view.findNavController()
+                .navigate(R.id.action_symptomThreeFragment_to_symptomFourFragment)
         }
 
     }
