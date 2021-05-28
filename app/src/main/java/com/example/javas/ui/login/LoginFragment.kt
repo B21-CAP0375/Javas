@@ -23,7 +23,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -32,9 +32,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnLoginLoginPage.setOnClickListener {
-            if (validate()){
-                view.findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
-            }
+            view.findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
+//            if (validate()){
+//                view.findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
+//            }
         }
         binding.btnRegisterLoginPage.setOnClickListener{
             view.findNavController().navigate(R.id.action_loginFragment_to_registerOneFragment)
