@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.javas.R
 import com.example.javas.databinding.FragmentLandingPageBinding
 import com.example.javas.databinding.FragmentLoginBinding
+import com.example.javas.utils.ViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -18,10 +20,9 @@ import com.google.firebase.ktx.Firebase
 class LoginFragment : Fragment() {
 
 
-    private lateinit var auth: FirebaseAuth
-
     private lateinit var  _binding: FragmentLoginBinding
     private val binding get() = _binding
+    private lateinit var  viewModel:LoginViewModel
 
 
 
@@ -32,17 +33,34 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
-        auth = Firebase.auth
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val emailCheck = binding.emailEdtxt.text
-        val passCheck = binding.passwordEdtxt.text
+
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        viewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
+
+
         binding.btnLoginLoginPage.setOnClickListener {
+            activity?.let {
+                val toHomePage = LoginFragmentDirections.actionLoginFragmentToHomePageFragment()
+                val docRef = viewModel.getUser(binding.emailEdtxt.text.toString())
 
-            signIn(emailCheck.toString(),passCheck.toString())
-
+                viewModel.login(binding.emailEdtxt.text.toString(),binding.passwordEdtxt.text.toString())
+                    .addOnCompleteListener(it) { task ->
+                        if (task.isSuccessful) {
+                            docRef.get()
+                                .addOnSuccessListener { document ->
+                                    if (document != null) {
+                                        toHomePage.name= document.getString("email").toString()
+                                        Toast.makeText(context, document.getString("email"), Toast.LENGTH_SHORT).show()
+                                        view.findNavController().navigate(toHomePage)
+                                    }
+                                }
+                        }
+                    }
+            }
         }
         binding.btnRegisterLoginPage.setOnClickListener{
             view.findNavController().navigate(R.id.action_loginFragment_to_registerOneFragment)
@@ -62,23 +80,6 @@ class LoginFragment : Fragment() {
             valid=false
         }
         return valid
-    }
-
-    ///login firebase
-    private fun signIn(email: String, password: String) {
-        // [START sign_in_with_email]
-        activity?.let {
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(it) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        view?.findNavController()?.navigate(R.id.action_loginFragment_to_homePageFragment)
-                        // If sign in fails, display a message to the user.
-                    } else{
-                    }
-                }
-        }
-        // [END sign_in_with_email]
     }
 
 }
