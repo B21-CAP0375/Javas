@@ -9,19 +9,19 @@
         android:id="@+id/splashScreenFragment"
         android:name="com.example.javas.ui.splashscreen.SplashScreenFragment"
         android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
+        tools:layout="@layout/fragment_splash_screen">
         <action
             android:id="@+id/action_splashScreenFragment_to_landingPageFragment"
             app:destination="@id/landingPageFragment"
+            app:launchSingleTop="true"
             app:popUpTo="@id/splashScreenFragment"
-            app:popUpToInclusive="true"
-            app:launchSingleTop="true" />
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.javas.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerOneFragment"
             app:destination="@id/registerOneFragment"
@@ -37,7 +37,7 @@
         android:id="@+id/landingPageFragment"
         android:name="com.example.javas.ui.landingpage.LandingPageFragment"
         android:label="fragment_landing_page"
-        tools:layout="@layout/fragment_landing_page" >
+        tools:layout="@layout/fragment_landing_page">
         <action
             android:id="@+id/action_landingPageFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -51,7 +51,7 @@
         android:id="@+id/registerOneFragment"
         android:name="com.example.javas.ui.register.RegisterOneFragment"
         android:label="fragment_register_one"
-        tools:layout="@layout/fragment_register_one" >
+        tools:layout="@layout/fragment_register_one">
         <action
             android:id="@+id/action_registerOneFragment_to_registerTwoFragment"
             app:destination="@id/registerTwoFragment"
@@ -64,26 +64,26 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="email"
-            app:argType="string"
-            android:defaultValue="name" />
+            android:defaultValue="name"
+            app:argType="string" />
         <argument
             android:name="password"
-            app:argType="string"
-            android:defaultValue="password" />
+            android:defaultValue="password"
+            app:argType="string" />
         <argument
             android:name="backpressed"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/registerTwoFragment"
         android:name="com.example.javas.ui.register.RegisterTwoFragment"
         android:label="fragment_register_two"
-        tools:layout="@layout/fragment_register_two" >
+        tools:layout="@layout/fragment_register_two">
         <argument
             android:name="email"
-            app:argType="string"
-            android:defaultValue="email register" />
+            android:defaultValue="email register"
+            app:argType="string" />
         <argument
             android:name="password"
             android:defaultValue="password"
@@ -100,74 +100,74 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="name"
-            app:argType="string"
-            android:defaultValue="name" />
+            android:defaultValue="name"
+            app:argType="string" />
         <argument
             android:name="NIK"
-            app:argType="string"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="string" />
         <argument
             android:name="gender"
-            app:argType="string"
-            android:defaultValue="jenis kelamin" />
+            android:defaultValue="jenis kelamin"
+            app:argType="string" />
         <argument
             android:name="dob"
-            app:argType="string"
-            android:defaultValue="dob" />
+            android:defaultValue="dob"
+            app:argType="string" />
         <argument
             android:name="birthPlace"
-            app:argType="string"
-            android:defaultValue="birthPlace" />
+            android:defaultValue="birthPlace"
+            app:argType="string" />
         <argument
             android:name="backPressed"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
         <argument
             android:name="day"
-            app:argType="string"
-            android:defaultValue="1" />
+            android:defaultValue="1"
+            app:argType="string" />
         <argument
             android:name="month"
-            app:argType="string"
-            android:defaultValue="2" />
+            android:defaultValue="2"
+            app:argType="string" />
         <argument
             android:name="year"
-            app:argType="string"
-            android:defaultValue="2000" />
+            android:defaultValue="2000"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/registerThreeFragment"
         android:name="com.example.javas.ui.register.RegisterThreeFragment"
         android:label="fragment_register_three"
-        tools:layout="@layout/fragment_register_three" >
+        tools:layout="@layout/fragment_register_three">
         <argument
             android:name="email"
-            app:argType="string"
-            android:defaultValue="email register" />
+            android:defaultValue="email register"
+            app:argType="string" />
         <argument
             android:name="password"
-            app:argType="string"
-            android:defaultValue="password register" />
+            android:defaultValue="password register"
+            app:argType="string" />
         <argument
             android:name="name"
-            app:argType="string"
-            android:defaultValue="nama register" />
+            android:defaultValue="nama register"
+            app:argType="string" />
         <argument
             android:name="bornPlace"
-            app:argType="string"
-            android:defaultValue="tempat lahir register" />
+            android:defaultValue="tempat lahir register"
+            app:argType="string" />
         <argument
             android:name="dateOfBirth"
-            app:argType="string"
-            android:defaultValue="dob" />
+            android:defaultValue="dob"
+            app:argType="string" />
         <argument
             android:name="NIK"
-            app:argType="string"
-            android:defaultValue="00000000" />
+            android:defaultValue="00000000"
+            app:argType="string" />
         <argument
             android:name="kelamin"
-            app:argType="string"
-            android:defaultValue="kelamin register" />
+            android:defaultValue="kelamin register"
+            app:argType="string" />
         <action
             android:id="@+id/action_registerThreeFragment_to_registerTwoFragment"
             app:destination="@id/registerTwoFragment"
@@ -175,16 +175,16 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="backPressed"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
         <argument
             android:name="phone"
-            app:argType="string"
-            android:defaultValue="08777777" />
+            android:defaultValue="08777777"
+            app:argType="string" />
         <argument
             android:name="address"
-            app:argType="string"
-            android:defaultValue="address" />
+            android:defaultValue="address"
+            app:argType="string" />
         <action
             android:id="@+id/action_registerThreeFragment_to_homePageFragment"
             app:destination="@id/homePageFragment"
@@ -192,16 +192,16 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="day"
-            app:argType="string"
-            android:defaultValue="1" />
+            android:defaultValue="1"
+            app:argType="string" />
         <argument
             android:name="Month"
-            app:argType="string"
-            android:defaultValue="2" />
+            android:defaultValue="2"
+            app:argType="string" />
         <argument
             android:name="year"
-            app:argType="string"
-            android:defaultValue="1980" />
+            android:defaultValue="1980"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/homePageFragment"
@@ -210,42 +210,261 @@
         tools:layout="@layout/fragment_home_page">
         <argument
             android:name="name"
-            app:argType="string"
-            android:defaultValue="name" />
+            android:defaultValue="name"
+            app:argType="string" />
         <action
             android:id="@+id/action_homePageFragment_to_symptomOneFragment"
             app:destination="@id/symptomOneFragment" />
     </fragment>
     <fragment
         android:id="@+id/symptomOneFragment"
-        android:name="com.example.javas.SymptomOneFragment"
+        android:name="com.example.javas.ui.symptoms.SymptomOneFragment"
         android:label="fragment_symptom_one"
         tools:layout="@layout/fragment_symptom_one">
         <action
             android:id="@+id/action_symptomOneFragment_to_symptomTwoFragment"
             app:destination="@id/symptomTwoFragment" />
+        <argument
+            android:name="sakitPernapasan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="demam"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="batukKering"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitTenggorokan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sedangFlu"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="backpressed"
+            android:defaultValue="false"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/symptomTwoFragment"
-        android:name="com.example.javas.SymptomTwoFragment"
+        android:name="com.example.javas.ui.symptoms.SymptomTwoFragment"
         android:label="fragment_symptom_two"
         tools:layout="@layout/fragment_symptom_two">
         <action
             android:id="@+id/action_symptomTwoFragment_to_symptomThreeFragment"
             app:destination="@id/symptomThreeFragment" />
+        <argument
+            android:name="sakitPernapasan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="demam"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="batukKering"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitTenggorokan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sedangFlu"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="asma"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="penyakitParu"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitKepala"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitJantung"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="diabetes"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+        <argument
+            android:name="backpressed"
+            android:defaultValue="false"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/symptomThreeFragment"
-        android:name="com.example.javas.SymptomThreeFragment"
+        android:name="com.example.javas.ui.symptoms.SymptomThreeFragment"
         android:label="fragment_symptom_three"
         tools:layout="@layout/fragment_symptom_three">
         <action
             android:id="@+id/action_symptomThreeFragment_to_symptomFourFragment"
             app:destination="@id/symptomFourFragment" />
+        <argument
+            android:name="sakitPernapasan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="demam"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="batukKering"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitTenggorokan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sedangFlu"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="asma"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="penyakitParu"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitKepala"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitJantung"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="diabetes"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="hiperTensi"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="kecapean"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="gangguanPencernaan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="baruBepergian"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="bertemuPasienCovid"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+        <argument
+            android:name="backpressed"
+            android:defaultValue="false"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/symptomFourFragment"
-        android:name="com.example.javas.SymptomFourFragment"
+        android:name="com.example.javas.ui.symptoms.SymptomFourFragment"
         android:label="fragment_symptom_four"
-        tools:layout="@layout/fragment_symptom_four" />
+        tools:layout="@layout/fragment_symptom_four">
+        <argument
+            android:name="sakitPernapasan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="demam"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="batukKering"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitTenggorokan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sedangFlu"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="asma"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="penyakitParu"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitKepala"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="sakitJantung"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="diabetes"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="hiperTensi"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="kecapean"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="gangguanPencernaan"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="baruBepergian"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="bertemuPasienCovid"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="mengikutiAcaraBesar"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="bertemuOrangBanyak"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="anggotaKeluargaBekerja"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="memakaiMasker"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="menggunakanSanitizer"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="backpressed"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
 </navigation>

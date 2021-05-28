@@ -56,6 +56,29 @@
     <string name="_4_4">4/4</string>
     <string name="check_result">CHECK RESULT</string>
     <string name="next">NEXT</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="breathing_problem">Sakit pernapasan</string>
+    <string name="fever">Demam</string>
+    <string name="dry_cough">Batuk kering</string>
+    <string name="sore_throat">Sakit Tenggorokan</string>
+    <string name="symptoms_checker">Symptoms Checker</string>
+    <string name="_24">2/4</string>
+    <string name="sedang_flu">Sedang flu</string>
+    <string name="asma">Asma</string>
+    <string name="penyakit_paru_obstruktif_kronis">Penyakit paru obstruktif kronis</string>
+    <string name="sakit_kepala">Sakit kepala</string>
+    <string name="sakit_jantung">Sakit jantung</string>
+    <string name="hiper_tensi">Hiper tensi</string>
+    <string name="kecapean">Kecapean</string>
+    <string name="gangguan_sistem_pencernaan">Gangguan sistem pencernaan</string>
+    <string name="baru_bepergian_dari_luar_kota_negeri">Baru bepergian dari luar kota/negeri</string>
+    <string name="bertemu_pasien_covid">Bertemu pasien covid</string>
+    <string name="bertemu_orang_dalam_jumlah_banyak">Bertemu orang dalam jumlah banyak</string>
+    <string name="anggota_keluarga_bekerja_di_tempat_umum">Anggota keluarga bekerja di tempat umum</string>
+    <string name="memakai_masker">Memakai masker</string>
+    <string name="menggunakan_hand_sanitizer">Menggunakan hand sanitizer</string>
+    <string name="megikuti_acara_besar">Megikuti acara besar</string>
     <!---->
 
 
