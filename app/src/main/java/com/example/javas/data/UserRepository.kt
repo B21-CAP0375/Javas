@@ -20,14 +20,27 @@ class UserRepository (
                 instance ?: UserRepository(firebaseAuth,firestore)
             }
     }
+
+    //loginpage
     fun login(email: String, password: String)=firebaseAuth.signInWithEmailAndPassword(email, password)
+    fun getUser(email: String)= firestore.collection("users").document(email)
 
-
+    //registerpage
     fun register(email: String, password: String) = firebaseAuth.createUserWithEmailAndPassword(email, password)
 
     fun createUser(email: String)= firestore.collection("users").document(email)
 
-    fun getUser(email: String)= firestore.collection("users").document(email)
+
+
+
+    //user profile page
+    fun updatePassword(newPassWord: String) = firebaseAuth.currentUser?.updatePassword(newPassWord)
+
+    fun checkPassword(email: String,password: String)=firestore.collection("users").document(email)
+
+    fun updatePasswordFire(email: String , newPassWord:String) = firestore.collection("users").document(email).update("password", newPassWord)
+    fun updatePhone(email: String , phone:String) = firestore.collection("users").document(email).update("phone", phone)
+    fun updateAlamat(email: String , alamat:String) = firestore.collection("users").document(email).update("alamat", alamat)
 
     fun currentUser() = firebaseAuth.currentUser
 

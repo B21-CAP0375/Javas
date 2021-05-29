@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.javas.data.UserRepository
 import com.example.javas.ui.login.LoginViewModel
 import com.example.javas.ui.register.RegisterViewModel
+import com.example.javas.ui.userprofile.UserProfileViewModel
 
 class ViewModelFactory private constructor(private val tourismRepository: UserRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -35,9 +36,9 @@ class ViewModelFactory private constructor(private val tourismRepository: UserRe
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(tourismRepository) as T
             }
-//            modelClass.isAssignableFrom(DetailTourismViewModel::class.java) -> {
-//                DetailTourismViewModel(tourismRepository) as T
-//            }
+            modelClass.isAssignableFrom(UserProfileViewModel::class.java) -> {
+                UserProfileViewModel(tourismRepository) as T
+            }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
 }

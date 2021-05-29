@@ -26,7 +26,7 @@ class RegisterThreeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegisterThreeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -64,7 +64,8 @@ class RegisterThreeFragment : Fragment() {
                 "place" to place,
                 "gender" to gender,
                 "phone" to binding.phoneEdtxt.text.toString(),
-                "alamat" to binding.alamatEdtxt.text.toString()
+                "alamat" to binding.alamatEdtxt.text.toString(),
+                "role" to "user"
             )
 //            val symptom = hashMapOf(
 //                "covid-19" to false
@@ -95,7 +96,6 @@ class RegisterThreeFragment : Fragment() {
                                 // Sign in success, update UI with the signed-in user's information
                                 view.findNavController().navigate(toHomePage)
                                 // If sign in fails, display a message to the user.
-                            } else{
                             }
                         }
                 }

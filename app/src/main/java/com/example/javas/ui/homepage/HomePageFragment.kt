@@ -40,7 +40,9 @@ class HomePageFragment : Fragment() {
 
         }
         binding.btnProfileHomePage.setOnClickListener {
-
+            val toUserProfile = HomePageFragmentDirections.actionHomePageFragmentToUserProfileFragment()
+            toUserProfile.name = name
+            view.findNavController().navigate(toUserProfile)
         }
     }
         //jika ingin memberi animasi pada tombol on back pressed

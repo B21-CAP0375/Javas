@@ -38,6 +38,11 @@
     <string name="home_page_user_title">Nama</string>
 
 
+    <!--User profile-->
+    <string name="user_profile_current_password_input">Password lama</string>
+    <string name="user_profile_new_password_input">Password baru</string>
+
+
     <!--Button -->
     <string name="login_btn_txt">Log In</string>
     <string name="register_btn_txt">Daftar</string>
@@ -48,6 +53,8 @@
     <string name="home_page_vaksinasi_btn_txt">Mendaftar Vaksinasi</string>
     <string name="home_page_jadwal_btn_txt">Melihat Jadwal Vaksinasi</string>
     <string name="home_page_profile_btn_txt">Profil Pengguna</string>
+    <string name="user_profile_change_btn_txt">Ganti</string>
+    <string name="user_profile_signout_btn_txt">Keluar Dari Akun</string>
 
     <!--    Sympton Fragment-->
     <string name="_1_4" tools:ignore="TypographyFractions">1/4</string>
