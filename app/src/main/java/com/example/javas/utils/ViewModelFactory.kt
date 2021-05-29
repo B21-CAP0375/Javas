@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.javas.data.UserRepository
+import com.example.javas.ui.adminpage.AdminPageViewModel
+import com.example.javas.ui.datepage.DatePageViewModel
 import com.example.javas.ui.login.LoginViewModel
 import com.example.javas.ui.register.RegisterViewModel
 import com.example.javas.ui.userprofile.UserProfileViewModel
@@ -38,6 +40,12 @@ class ViewModelFactory private constructor(private val tourismRepository: UserRe
             }
             modelClass.isAssignableFrom(UserProfileViewModel::class.java) -> {
                 UserProfileViewModel(tourismRepository) as T
+            }
+            modelClass.isAssignableFrom(DatePageViewModel::class.java) -> {
+                DatePageViewModel(tourismRepository) as T
+            }
+            modelClass.isAssignableFrom(AdminPageViewModel::class.java) -> {
+                AdminPageViewModel(tourismRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

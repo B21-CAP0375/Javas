@@ -37,7 +37,9 @@ class HomePageFragment : Fragment() {
             view.findNavController().navigate(R.id.action_homePageFragment_to_symptomOneFragment)
         }
         binding.btnJadwalHomePage.setOnClickListener {
-
+            val toDatePage = HomePageFragmentDirections.actionHomePageFragmentToDatePageFragment()
+            toDatePage.name= name
+            view.findNavController().navigate(toDatePage)
         }
         binding.btnProfileHomePage.setOnClickListener {
             val toUserProfile = HomePageFragmentDirections.actionHomePageFragmentToUserProfileFragment()

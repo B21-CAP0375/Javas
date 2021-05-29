@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.javas.R
 import com.example.javas.databinding.FragmentSymptomFourBinding
 
@@ -79,7 +80,8 @@ class SymptomFourFragment : Fragment() {
         }
 
         binding.btnNextResult.setOnClickListener {
-
+            val toResult = SymptomFourFragmentDirections.actionSymptomFourFragmentToResultPositiveFragment()
+            view.findNavController().navigate(toResult)
         }
 
     }

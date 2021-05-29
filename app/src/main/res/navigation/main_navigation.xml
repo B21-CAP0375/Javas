@@ -46,6 +46,9 @@
             app:destination="@id/registerOneFragment"
             app:popUpTo="@id/landingPageFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_adminPageFragment"
+            app:destination="@id/adminPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerOneFragment"
@@ -218,6 +221,9 @@
         <action
             android:id="@+id/action_homePageFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_homePageFragment_to_datePageFragment"
+            app:destination="@id/datePageFragment" />
     </fragment>
     <fragment
         android:id="@+id/symptomOneFragment"
@@ -469,6 +475,11 @@
             android:name="backpressed"
             android:defaultValue="false"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_symptomFourFragment_to_resultPositiveFragment"
+            app:destination="@id/resultPositiveFragment"
+            app:popUpTo="@id/symptomFourFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -489,5 +500,49 @@
             app:destination="@id/landingPageFragment"
             app:popUpTo="@id/userProfileFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/datePageFragment"
+        android:name="com.example.javas.ui.datepage.DatePageFragment"
+        android:label="fragment_date_page"
+        tools:layout="@layout/fragment_date_page" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="Empty" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultPositiveFragment"
+        android:name="com.example.javas.ui.resultpositivepage.ResultPositiveFragment"
+        android:label="fragment_result_positive"
+        tools:layout="@layout/fragment_result_positive" >
+        <action
+            android:id="@+id/action_resultPositiveFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@id/resultPositiveFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPageFragment"
+        android:name="com.example.javas.ui.adminpage.AdminPageFragment"
+        android:label="fragment_admin_page"
+        tools:layout="@layout/fragment_admin_page" >
+        <action
+            android:id="@+id/action_adminPageFragment_to_adminDashboard"
+            app:destination="@id/adminDashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminDashboard"
+        android:name="com.example.javas.AdminDashboard"
+        android:label="fragment_admin_dashboard"
+        tools:layout="@layout/fragment_admin_dashboard" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
+        <argument
+            android:name="hospital"
+            app:argType="string"
+            android:defaultValue="hospitalcontoh" />
     </fragment>
 </navigation>

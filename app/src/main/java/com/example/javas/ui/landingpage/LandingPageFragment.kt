@@ -26,7 +26,7 @@ class LandingPageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLandingPageBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -39,6 +39,9 @@ class LandingPageFragment : Fragment() {
         }
         binding.btnRegister.setOnClickListener{
             view.findNavController().navigate(R.id.action_landingPageFragment_to_registerOneFragment)
+        }
+        binding.btnLoginAdminPage.setOnClickListener {
+            view.findNavController().navigate(R.id.action_landingPageFragment_to_adminPageFragment)
         }
     }
 
