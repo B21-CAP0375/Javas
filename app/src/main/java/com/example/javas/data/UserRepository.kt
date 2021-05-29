@@ -2,6 +2,7 @@ package com.example.javas.data
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 class UserRepository (
     private val firebaseAuth: FirebaseAuth,
@@ -41,6 +42,10 @@ class UserRepository (
     fun updatePasswordFire(email: String , newPassWord:String) = firestore.collection("users").document(email).update("password", newPassWord)
     fun updatePhone(email: String , phone:String) = firestore.collection("users").document(email).update("phone", phone)
     fun updateAlamat(email: String , alamat:String) = firestore.collection("users").document(email).update("alamat", alamat)
+
+
+    //admin vaksinasi time
+    fun setHospital(hospital:String, date:String) = firestore.collection(hospital).document(date)
 
     fun currentUser() = firebaseAuth.currentUser
 

@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminDashboard">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.admindashboard.AdminDashboard"
+    android:padding="25dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/home_page_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/dashboard_page_title"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/home_page_user_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dashboard_page_name"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_page_title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_vaksinasi_home_page"
+        android:layout_width="264dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/background_button_blue_primary"
+        android:text="@string/admin_page_vaksinasi_btn_txt"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_page_user_title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_jadwal_home_page"
+        android:layout_width="264dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/background_button_blue_primary"
+        android:text="@string/admin_page_jadwal_btn_txt"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_vaksinasi_home_page" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

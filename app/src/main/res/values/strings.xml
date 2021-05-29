@@ -54,6 +54,8 @@
     <string name="register_register_btn_txt">Registrasi</string>
     <string name="home_page_vaksinasi_btn_txt">Mendaftar Vaksinasi</string>
     <string name="home_page_jadwal_btn_txt">Melihat Jadwal Vaksinasi</string>
+    <string name="admin_page_vaksinasi_btn_txt">Membuka Daftar Vaksinasi</string>
+    <string name="admin_page_jadwal_btn_txt">Melihat Daftar Vaksinasi</string>
     <string name="home_page_profile_btn_txt">Profil Pengguna</string>
     <string name="user_profile_change_btn_txt">Ganti</string>
     <string name="user_profile_signout_btn_txt">Keluar Dari Akun</string>
@@ -97,5 +99,18 @@
 
     <!--positive covid-19 page-->
     <string name="positive_covid_text">Anda memiliki indikasi covid-19 silakan periksa ke fasilitas kesehatan terdekat</string>
+
+
+    <!--dashboard admin-->
+    <string name="dashboard_page_title">Rumah Sakit</string>
+    <string name="dashboard_page_name">Hospital</string>
+
+
+    <!--hospital vaksinasi-->
+    <string name="vaccinate_title">Pilih tanggal Vaksinasi </string>
+    <string name="vaccinate_date_title">Tanggal Vaksinasi </string>
+    <string name="vaccinate_person_title">Jumlah maksimal</string>
+    <string name="vaccinate_person_input">orang</string>
+    <string name="vaccinate_person_btn">Update</string>
 
 </resources>

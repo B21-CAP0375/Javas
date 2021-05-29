@@ -533,7 +533,7 @@
     </fragment>
     <fragment
         android:id="@+id/adminDashboard"
-        android:name="com.example.javas.AdminDashboard"
+        android:name="com.example.javas.ui.admindashboard.AdminDashboard"
         android:label="fragment_admin_dashboard"
         tools:layout="@layout/fragment_admin_dashboard" >
         <argument
@@ -544,5 +544,18 @@
             android:name="hospital"
             app:argType="string"
             android:defaultValue="hospitalcontoh" />
+        <action
+            android:id="@+id/action_adminDashboard_to_hospitalVaksinasiFragment"
+            app:destination="@id/hospitalVaksinasiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hospitalVaksinasiFragment"
+        android:name="com.example.javas.ui.hospitalvaksinasi.HospitalVaksinasiFragment"
+        android:label="fragment_hospital_vaksinasi"
+        tools:layout="@layout/fragment_hospital_vaksinasi" >
+        <argument
+            android:name="hospital"
+            app:argType="string"
+            android:defaultValue="hospital" />
     </fragment>
 </navigation>

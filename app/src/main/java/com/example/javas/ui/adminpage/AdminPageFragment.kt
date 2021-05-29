@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.javas.R
 import com.example.javas.databinding.FragmentAdminPageBinding
 import com.example.javas.databinding.FragmentLoginBinding
@@ -24,7 +25,6 @@ class AdminPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentAdminPageBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -41,7 +41,10 @@ class AdminPageFragment : Fragment() {
                 docRef.get().addOnSuccessListener {
                     document->
                     if (document.getString("role").toString()=="admin"){
-                        Toast.makeText(context, document.getString("hospital"), Toast.LENGTH_SHORT).show()
+                        val toAdminDashboard = AdminPageFragmentDirections.actionAdminPageFragmentToAdminDashboard()
+                        toAdminDashboard.name=binding.emailEdtxt.text.toString()
+                        toAdminDashboard.hospital=document.getString("hospital").toString()
+                        view.findNavController().navigate(toAdminDashboard)
                     }
                     else{
                         Toast.makeText(context, "Bukan Admin", Toast.LENGTH_SHORT).show()
