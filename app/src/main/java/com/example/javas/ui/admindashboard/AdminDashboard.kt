@@ -1,4 +1,4 @@
-package com.example.javas.ui.homepage
+package com.example.javas.ui.admindashboard
 
 import android.content.Context
 import android.os.Bundle
@@ -9,45 +9,45 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
 import com.example.javas.R
+import com.example.javas.databinding.FragmentAdminDashboardBinding
 import com.example.javas.databinding.FragmentHomePageBinding
-import com.example.javas.databinding.FragmentRegisterOneBinding
 
 
-class HomePageFragment : Fragment() {
+class AdminDashboard : Fragment() {
 
-    private lateinit var  _binding: FragmentHomePageBinding
+    private lateinit var  _binding: FragmentAdminDashboardBinding
     private val binding get() = _binding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomePageBinding.inflate(inflater, container, false)
+        // Inflate the layout for this fragment
+        _binding = FragmentAdminDashboardBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val name = HomePageFragmentArgs.fromBundle(arguments as Bundle).name
-        binding.homePageUserTitle.text = name
+        val hospital = AdminDashboardArgs.fromBundle(arguments as Bundle).hospital
+        binding.homePageUserTitle.text = hospital
+
 
         binding.btnVaksinasiHomePage.setOnClickListener {
-            view.findNavController().navigate(R.id.action_homePageFragment_to_symptomOneFragment)
+            val toDate = AdminDashboardDirections.actionAdminDashboardToHospitalVaksinasiFragment()
+            toDate.hospital=hospital
+            view.findNavController().navigate(toDate)
         }
+
         binding.btnJadwalHomePage.setOnClickListener {
-            val toDatePage = HomePageFragmentDirections.actionHomePageFragmentToDatePageFragment()
-            toDatePage.name= name
-            view.findNavController().navigate(toDatePage)
-        }
-        binding.btnProfileHomePage.setOnClickListener {
-            val toUserProfile = HomePageFragmentDirections.actionHomePageFragmentToUserProfileFragment()
-            toUserProfile.name = name
-            view.findNavController().navigate(toUserProfile)
+            val toDate = AdminDashboardDirections.actionAdminDashboardToAdminListDateFragment()
+            toDate.hospital=hospital
+            view.findNavController().navigate(toDate)
         }
     }
-        //jika ingin memberi animasi pada tombol on back pressed
+
+
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val callback = object : OnBackPressedCallback(true) {
@@ -58,5 +58,7 @@ class HomePageFragment : Fragment() {
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
+
+
 
 }
