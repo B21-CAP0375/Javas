@@ -75,7 +75,7 @@ class RegisterThreeFragment : Fragment() {
 //            )
 
             val toHomePage = RegisterThreeFragmentDirections.actionRegisterThreeFragmentToHomePageFragment()
-            toHomePage.name=name
+            toHomePage.name=email
             if (validate()){
                 activity?.let {
                     viewModel.register(email, password)
