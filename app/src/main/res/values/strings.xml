@@ -113,4 +113,9 @@
     <string name="vaccinate_person_input">orang</string>
     <string name="vaccinate_person_btn">Update</string>
 
+
+    <!--choose date-->
+    <string name="date_page_title">Pilih jadwal</string>
+    <string name="date_page_btn">Pilih</string>
+
 </resources>

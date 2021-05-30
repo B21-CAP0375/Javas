@@ -47,7 +47,9 @@ class UserRepository (
     //admin vaksinasi time
     fun setHospital(hospital:String, date:String) = firestore.collection(hospital).document(date)
     fun getHospital(hospital: String)=firestore.collection(hospital)
-    fun getDate(hospital: String)=firestore.collectionGroup(hospital).whereEqualTo("status", true).get()
+
+
+    fun getDate(hospital: String)=firestore.collection(hospital).whereEqualTo("status", true).get()
 
     fun currentUser() = firebaseAuth.currentUser
 

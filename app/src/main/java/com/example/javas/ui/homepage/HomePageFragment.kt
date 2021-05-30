@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
-import com.example.javas.R
 import com.example.javas.databinding.FragmentHomePageBinding
-import com.example.javas.databinding.FragmentRegisterOneBinding
 
 
 class HomePageFragment : Fragment() {
@@ -24,8 +23,7 @@ class HomePageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomePageBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,7 +32,9 @@ class HomePageFragment : Fragment() {
         binding.homePageUserTitle.text = name
 
         binding.btnVaksinasiHomePage.setOnClickListener {
-            view.findNavController().navigate(R.id.action_homePageFragment_to_symptomOneFragment)
+            val toSymptom = HomePageFragmentDirections.actionHomePageFragmentToSymptomOneFragment()
+            toSymptom.name= name
+            view.findNavController().navigate(toSymptom)
         }
         binding.btnJadwalHomePage.setOnClickListener {
             val toDatePage = HomePageFragmentDirections.actionHomePageFragmentToDatePageFragment()

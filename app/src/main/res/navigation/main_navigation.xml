@@ -257,6 +257,10 @@
             android:name="backpressed"
             android:defaultValue="false"
             app:argType="boolean" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
     </fragment>
     <fragment
         android:id="@+id/symptomTwoFragment"
@@ -311,6 +315,10 @@
             android:name="backpressed"
             android:defaultValue="false"
             app:argType="boolean" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
     </fragment>
     <fragment
         android:id="@+id/symptomThreeFragment"
@@ -385,6 +393,10 @@
             android:name="backpressed"
             android:defaultValue="false"
             app:argType="boolean" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
     </fragment>
     <fragment
         android:id="@+id/symptomFourFragment"
@@ -480,6 +492,13 @@
             app:destination="@id/resultPositiveFragment"
             app:popUpTo="@id/symptomFourFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
+        <action
+            android:id="@+id/action_symptomFourFragment_to_chooseDateVaccineFragment"
+            app:destination="@id/chooseDateVaccineFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -521,6 +540,10 @@
             app:destination="@id/homePageFragment"
             app:popUpTo="@id/resultPositiveFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
     </fragment>
     <fragment
         android:id="@+id/adminPageFragment"
@@ -570,5 +593,20 @@
             android:name="hospital"
             app:argType="string"
             android:defaultValue="hospital" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseDateVaccineFragment"
+        android:name="com.example.javas.ui.choosedatevaccine.ChooseDateVaccineFragment"
+        android:label="fragment_choose_date_vaccine"
+        tools:layout="@layout/fragment_choose_date_vaccine" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
+        <action
+            android:id="@+id/action_chooseDateVaccineFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@id/chooseDateVaccineFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

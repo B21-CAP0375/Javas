@@ -70,8 +70,9 @@ class SymptomOneFragment : Fragment() {
         }
 
         binding.btnNextTwo.setOnClickListener {
-            val toSymptomsTwo =
-                SymptomOneFragmentDirections.actionSymptomOneFragmentToSymptomTwoFragment()
+            val name=SymptomOneFragmentArgs.fromBundle(arguments as Bundle).name
+            val toSymptomsTwo = SymptomOneFragmentDirections.actionSymptomOneFragmentToSymptomTwoFragment()
+            toSymptomsTwo.name= name
             toSymptomsTwo.sakitPernapasan = binding.rgSp.checkedRadioButtonId == R.id.rbYesSp
             toSymptomsTwo.demam = binding.rgDemam.checkedRadioButtonId == R.id.rbYesD
             toSymptomsTwo.batukKering = binding.rgBk.checkedRadioButtonId == R.id.rbYesBk
@@ -80,7 +81,7 @@ class SymptomOneFragment : Fragment() {
 
             if (validate()) {
                 view.findNavController()
-                    .navigate(R.id.action_symptomOneFragment_to_symptomTwoFragment)
+                    .navigate(toSymptomsTwo)
             } else {
                 Toast.makeText(context, "Mohon jawab semua pertanyaan", Toast.LENGTH_SHORT).show()
             }

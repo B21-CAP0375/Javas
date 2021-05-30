@@ -63,7 +63,7 @@ class AdminListDateFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         override fun onNothingSelected(parent: AdapterView<*>?) {
                 Toast.makeText(context, "gagal", Toast.LENGTH_SHORT).show()
-        }
+            }
 
 }
 

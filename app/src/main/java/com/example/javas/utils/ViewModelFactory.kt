@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.javas.data.UserRepository
 import com.example.javas.ui.adminlistdate.AdminListDateViewModel
 import com.example.javas.ui.adminpage.AdminPageViewModel
+import com.example.javas.ui.choosedatevaccine.ChooseDateVaccineViewModel
 import com.example.javas.ui.datepage.DatePageViewModel
 import com.example.javas.ui.hospitalvaksinasi.HospitalVaksinasiViewModel
 import com.example.javas.ui.login.LoginViewModel
@@ -54,6 +55,9 @@ class ViewModelFactory private constructor(private val tourismRepository: UserRe
             }
             modelClass.isAssignableFrom(AdminListDateViewModel::class.java) -> {
                 AdminListDateViewModel(tourismRepository) as T
+            }
+            modelClass.isAssignableFrom(ChooseDateVaccineViewModel::class.java) -> {
+                ChooseDateVaccineViewModel(tourismRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
