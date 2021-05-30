@@ -44,6 +44,9 @@ class UserRepository (
     fun updateAlamat(email: String , alamat:String) = firestore.collection("users").document(email).update("alamat", alamat)
 
 
+    fun getVaccineDate(email: String)=firestore.collection("users").document(email).collection("vaccination").document("vaccineDate")
+
+
     //admin vaksinasi time
     fun setHospital(hospital:String, date:String) = firestore.collection(hospital).document(date)
     fun getHospital(hospital: String)=firestore.collection(hospital)

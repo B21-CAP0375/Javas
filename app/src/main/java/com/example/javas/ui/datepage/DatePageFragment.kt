@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.javas.R
 import com.example.javas.databinding.FragmentDatePageBinding
 import com.example.javas.databinding.FragmentUserProfileBinding
+import com.example.javas.ui.adminlistdate.AdminListDateViewModel
 import com.example.javas.ui.userprofile.UserProfileViewModel
+import com.example.javas.utils.ViewModelFactory
 
 
 class DatePageFragment : Fragment() {
@@ -29,6 +32,18 @@ class DatePageFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        viewModel = ViewModelProvider(this, factory)[DatePageViewModel::class.java]
+
+        val name = DatePageFragmentArgs.fromBundle(arguments as Bundle).name
+
+        val dateVaccine = viewModel.getVaccineDate(name)
+
+        dateVaccine
+            .get()
+            .addOnSuccessListener {
+                document -> binding.dateEdt.text=document.getString("vaccineDate").toString()
+            }
         super.onViewCreated(view, savedInstanceState)
     }
 }

@@ -94,7 +94,7 @@
 
     <!--Date page-->
     <string name="Date_page_title">Tanggal Vaksin</string>
-    <string name="Date_page_date_time">12/5/2021</string>
+    <string name="Date_page_date_time"> </string>
 
 
     <!--positive covid-19 page-->
