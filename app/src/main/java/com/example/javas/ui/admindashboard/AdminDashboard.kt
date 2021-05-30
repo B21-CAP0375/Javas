@@ -40,7 +40,9 @@ class AdminDashboard : Fragment() {
         }
 
         binding.btnJadwalHomePage.setOnClickListener {
-
+            val toDate = AdminDashboardDirections.actionAdminDashboardToAdminListDateFragment()
+            toDate.hospital=hospital
+            view.findNavController().navigate(toDate)
         }
     }
 
