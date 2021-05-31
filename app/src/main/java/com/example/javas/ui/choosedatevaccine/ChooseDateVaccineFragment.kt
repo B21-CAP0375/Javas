@@ -63,7 +63,8 @@ class ChooseDateVaccineFragment : Fragment() {
                                 id: Long
                             ) {
                                 val vaccineDate = hashMapOf(
-                                         "vaccineDate" to spinner.getItemAtPosition(position).toString()
+                                         "vaccineDate" to spinner.getItemAtPosition(position).toString(),
+                                         "hospital" to "hospitaltesting"
                                 )
                                 binding.btnLoginLoginPage.setOnClickListener {
                                     getUser
@@ -74,6 +75,28 @@ class ChooseDateVaccineFragment : Fragment() {
                                     val toHomePage = ChooseDateVaccineFragmentDirections.actionChooseDateVaccineFragmentToHomePageFragment()
                                     toHomePage.name=name
                                     if (view != null) {
+
+                                        viewModel.setHospital("hospitaltesting",spinner.getItemAtPosition(position).toString())
+                                            .get()
+                                            .addOnSuccessListener {
+                                                documents->   var maxPerson =
+                                                documents.getString("maxPerson")?.toInt() ?: 0
+                                                var status=true
+                                                if (maxPerson!=0){
+                                                    maxPerson -= 1
+                                                    if (maxPerson==0){
+                                                        status= false
+                                                    }
+                                                }
+                                               val a = maxPerson.toString()
+                                                val hospital = hashMapOf(
+                                                    "date" to spinner.getItemAtPosition(position).toString(),
+                                                    "maxPerson" to a,
+                                                    "status" to status
+                                                )
+                                                viewModel.reduceUser("hospitaltesting",spinner.getItemAtPosition(position).toString())
+                                                    .set(hospital)
+                                            }
                                         view.findNavController().navigate(toHomePage)
                                     }
                                 }

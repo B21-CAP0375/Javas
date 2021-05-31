@@ -6,15 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.javas.R
 import com.example.javas.databinding.FragmentSymptomFourBinding
+import com.example.javas.ui.choosedatevaccine.ChooseDateVaccineViewModel
+import com.example.javas.utils.ViewModelFactory
 
 
 class SymptomFourFragment : Fragment() {
 
     private lateinit var _binding: FragmentSymptomFourBinding
     private val binding get() = _binding
+    private lateinit var viewModel: SymptomViewModel
 
 
     override fun onCreateView(
@@ -26,6 +30,11 @@ class SymptomFourFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        viewModel = ViewModelProvider(this, factory)[SymptomViewModel::class.java]
+
+
         val backPressed = SymptomFourFragmentArgs.fromBundle(arguments as Bundle).backpressed
         val sakitPernapasan = SymptomFourFragmentArgs.fromBundle(arguments as Bundle).sakitPernapasan
         val demam = SymptomFourFragmentArgs.fromBundle(arguments as Bundle).demam
@@ -84,7 +93,27 @@ class SymptomFourFragment : Fragment() {
             val name = SymptomFourFragmentArgs.fromBundle(arguments as Bundle).name
             val toResult = SymptomFourFragmentDirections.actionSymptomFourFragmentToChooseDateVaccineFragment()
             toResult.name=name
-            view.findNavController().navigate(toResult)
+
+            val toPositive = SymptomFourFragmentDirections.actionSymptomFourFragmentToResultPositiveFragment()
+            toPositive.name=name
+
+            var status = false
+
+            //berikan machine learning disini dan ubah status dari false menjadi sesuai machine learning
+
+            val symptom = hashMapOf(
+                "covid-19" to status
+            )
+            viewModel.getUser(name)
+                .collection("vaccination")
+                .document("symptom")
+                .set(symptom)
+
+            if (status){
+                view.findNavController().navigate(toPositive)
+            }else{
+                view.findNavController().navigate(toResult)
+            }
         }
 
     }

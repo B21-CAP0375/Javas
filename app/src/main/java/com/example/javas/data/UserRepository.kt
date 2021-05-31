@@ -54,6 +54,8 @@ class UserRepository (
 
     fun getDate(hospital: String)=firestore.collection(hospital).whereEqualTo("status", true).get()
 
+    fun reducePerson(hospital: String,date: String)=firestore.collection(hospital).document(date)
+
     fun currentUser() = firebaseAuth.currentUser
 
     fun logout() = firebaseAuth.signOut()
