@@ -42,7 +42,9 @@ class DatePageFragment : Fragment() {
         dateVaccine
             .get()
             .addOnSuccessListener {
-                document -> binding.dateEdt.text=document.getString("vaccineDate").toString()
+                document ->
+                binding.dateEdt.text=document.getString("vaccineDate").toString()
+                binding.hospitalEdt.text=document.getString("hospital").toString()
             }
         super.onViewCreated(view, savedInstanceState)
     }

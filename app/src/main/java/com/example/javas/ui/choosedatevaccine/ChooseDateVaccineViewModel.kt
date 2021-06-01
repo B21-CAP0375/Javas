@@ -14,4 +14,6 @@ class ChooseDateVaccineViewModel (
     fun reduceUser(hospital: String,date:String)=repository.reducePerson(hospital, date)
 
     fun setHospital(hospital: String,date: String)=repository.setHospital(hospital, date)
+
+    fun getHospitalName()=repository.getHospitalName()
 }

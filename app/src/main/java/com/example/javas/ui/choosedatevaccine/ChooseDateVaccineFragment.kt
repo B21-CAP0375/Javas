@@ -36,71 +36,103 @@ class ChooseDateVaccineFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireActivity())
         viewModel = ViewModelProvider(this, factory)[ChooseDateVaccineViewModel::class.java]
 
-        val getDate = viewModel.getDate("hospitaltesting")
+
         val getUser = viewModel.getUser(name)
+        val getHospitalName = viewModel.getHospitalName()
 
         val spinner = binding.spinner
+        val spinnerHospital = binding.spinnerHospital
         val subjects: MutableList<String> = ArrayList()
+        val hospitalArray: MutableList<String> = ArrayList()
 
 
-        getDate
+        getHospitalName
             .addOnSuccessListener { documents->
                 for (document in documents) {
-                    subjects.add(document.getString("date").toString())
-                    val arrayAdapter =
-                        context?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,subjects) }
-                    if (arrayAdapter != null) {
-                        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        spinner.adapter = arrayAdapter
-                        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                            override fun onNothingSelected(parent: AdapterView<*>?) {
-                                Toast.makeText(context, "tidak bisa", Toast.LENGTH_SHORT).show()
-                            }
+                    hospitalArray.add(document.getString("name").toString())
+                    val hospitalArrayAdapter =
+                        context?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,hospitalArray) }
+                    if (hospitalArrayAdapter !=null){
+                        hospitalArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        spinnerHospital.adapter = hospitalArrayAdapter
+                        spinnerHospital.onItemSelectedListener= object :AdapterView.OnItemSelectedListener{
                             override fun onItemSelected(
                                 parent: AdapterView<*>?,
                                 view: View?,
                                 position: Int,
                                 id: Long
                             ) {
-                                val vaccineDate = hashMapOf(
-                                         "vaccineDate" to spinner.getItemAtPosition(position).toString(),
-                                         "hospital" to "hospitaltesting"
-                                )
-                                binding.btnLoginLoginPage.setOnClickListener {
-                                    getUser
-                                        .collection("vaccination")
-                                        .document("vaccineDate")
-                                        .set(vaccineDate)
-                                    Toast.makeText(context, "berhasil", Toast.LENGTH_SHORT).show()
-                                    val toHomePage = ChooseDateVaccineFragmentDirections.actionChooseDateVaccineFragmentToHomePageFragment()
-                                    toHomePage.name=name
-                                    if (view != null) {
+                               val hospitalName= spinnerHospital.getItemAtPosition(position).toString()
+                                subjects.clear()
+                                val getDate = viewModel.getDate(hospitalName)
+                                getDate
+                                    .addOnSuccessListener { documents->
+                                        for (document in documents) {
+                                            subjects.add(document.getString("date").toString())
+                                            val arrayAdapter =
+                                                context?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,subjects) }
+                                            if (arrayAdapter != null) {
+                                                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                                                spinner.adapter = arrayAdapter
+                                                spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                                                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                                                        Toast.makeText(context, "tidak bisa", Toast.LENGTH_SHORT).show()
+                                                    }
+                                                    override fun onItemSelected(
+                                                        parent: AdapterView<*>?,
+                                                        view: View?,
+                                                        position: Int,
+                                                        id: Long
+                                                    ) {
+                                                        val vaccineDate = hashMapOf(
+                                                            "vaccineDate" to spinner.getItemAtPosition(position).toString(),
+                                                            "hospital" to hospitalName
+                                                        )
+                                                        binding.btnLoginLoginPage.setOnClickListener {
+                                                            getUser
+                                                                .collection("vaccination")
+                                                                .document("vaccineDate")
+                                                                .set(vaccineDate)
+                                                            Toast.makeText(context, "berhasil", Toast.LENGTH_SHORT).show()
+                                                            val toHomePage = ChooseDateVaccineFragmentDirections.actionChooseDateVaccineFragmentToHomePageFragment()
+                                                            toHomePage.name=name
+                                                            if (view != null) {
 
-                                        viewModel.setHospital("hospitaltesting",spinner.getItemAtPosition(position).toString())
-                                            .get()
-                                            .addOnSuccessListener {
-                                                documents->   var maxPerson =
-                                                documents.getString("maxPerson")?.toInt() ?: 0
-                                                var status=true
-                                                if (maxPerson!=0){
-                                                    maxPerson -= 1
-                                                    if (maxPerson==0){
-                                                        status= false
+                                                                viewModel.setHospital(hospitalName,spinner.getItemAtPosition(position).toString())
+                                                                    .get()
+                                                                    .addOnSuccessListener {
+                                                                            documents->   var maxPerson =
+                                                                        documents.getString("maxPerson")?.toInt() ?: 0
+                                                                        var status=true
+                                                                        if (maxPerson!=0){
+                                                                            maxPerson -= 1
+                                                                            if (maxPerson==0){
+                                                                                status= false
+                                                                            }
+                                                                        }
+                                                                        val a = maxPerson.toString()
+                                                                        val hospital = hashMapOf(
+                                                                            "date" to spinner.getItemAtPosition(position).toString(),
+                                                                            "maxPerson" to a,
+                                                                            "status" to status
+                                                                        )
+                                                                        viewModel.reduceUser(hospitalName,spinner.getItemAtPosition(position).toString())
+                                                                            .set(hospital)
+                                                                    }
+                                                                view.findNavController().navigate(toHomePage)
+                                                            }
+                                                        }
                                                     }
                                                 }
-                                               val a = maxPerson.toString()
-                                                val hospital = hashMapOf(
-                                                    "date" to spinner.getItemAtPosition(position).toString(),
-                                                    "maxPerson" to a,
-                                                    "status" to status
-                                                )
-                                                viewModel.reduceUser("hospitaltesting",spinner.getItemAtPosition(position).toString())
-                                                    .set(hospital)
                                             }
-                                        view.findNavController().navigate(toHomePage)
+                                        }
                                     }
-                                }
                             }
+
+                            override fun onNothingSelected(parent: AdapterView<*>?) {
+                                Toast.makeText(context, "tidak bisa", Toast.LENGTH_SHORT).show()
+                            }
+
                         }
                     }
                 }
