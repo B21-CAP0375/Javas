@@ -8,6 +8,7 @@ import com.example.javas.ui.adminlistdate.AdminListDateViewModel
 import com.example.javas.ui.adminpage.AdminPageViewModel
 import com.example.javas.ui.choosedatevaccine.ChooseDateVaccineViewModel
 import com.example.javas.ui.datepage.DatePageViewModel
+import com.example.javas.ui.homepage.HomePageViewModel
 import com.example.javas.ui.hospitalvaksinasi.HospitalVaksinasiViewModel
 import com.example.javas.ui.login.LoginViewModel
 import com.example.javas.ui.register.RegisterViewModel
@@ -62,6 +63,9 @@ class ViewModelFactory private constructor(private val tourismRepository: UserRe
             }
             modelClass.isAssignableFrom(SymptomViewModel::class.java) -> {
                 SymptomViewModel(tourismRepository) as T
+            }
+            modelClass.isAssignableFrom(HomePageViewModel::class.java) -> {
+                HomePageViewModel(tourismRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
