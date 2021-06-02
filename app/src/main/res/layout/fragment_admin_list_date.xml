@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.adminlistdate.AdminListDateFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.adminlistdate.AdminListDateFragment"
+    android:padding="25dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/text_title"
+        android:id="@+id/date_list_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/list_date_title"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/daftar_tgl_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/daftar_tgl"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_list_title"/>
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/daftar_tgl_txt"
+        />
+
+    <TextView
+        android:id="@+id/maximum_person_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/list_date_max_people_title"
+        android:textSize="16sp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/maximum_person_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/maximum_person_txt" />
+
+    <TextView
+        android:id="@+id/maximum_person_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/maximum_person_title"
+        app:layout_constraintTop_toBottomOf="@+id/daftar_tgl_txt" />
+
+
+    <TextView
+        android:id="@+id/register_person_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/list_date_registered_people"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/register_person_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/register_person_txt" />
+
+    <TextView
+        android:id="@+id/register_person_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_person_title"
+        app:layout_constraintTop_toBottomOf="@+id/maximum_person_txt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,18 +3,20 @@ package com.example.javas.ui.adminlistdate
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.core.view.get
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.javas.R
 import com.example.javas.databinding.FragmentAdminListDateBinding
-import com.example.javas.databinding.FragmentHospitalVaksinasiBinding
-import com.example.javas.ui.adminpage.AdminPageViewModel
 import com.example.javas.utils.ViewModelFactory
 
-class AdminListDateFragment : Fragment() {
+class AdminListDateFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var  _binding: FragmentAdminListDateBinding
     private val binding get() = _binding
@@ -35,16 +37,60 @@ class AdminListDateFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory)[AdminListDateViewModel::class.java]
 
         val hospital = AdminListDateFragmentArgs.fromBundle(arguments as Bundle).hospital
+        val spinner = binding.spinner
+        val subjects: MutableList<String> = ArrayList()
+
         viewModel.getUser(hospital)
+            .whereEqualTo("status",true)
             .get()
             .addOnSuccessListener { documents->
                 for (document in documents) {
-                    val a = "${document.id} => ${document.data}"
-                    binding.textTitle.text= a
-                    Log.d(TAG, "${document.id} => ${document.data}")
+                    subjects.add(document.getString("date").toString())
+                    val arrayAdapter =
+                        context?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,subjects) }
+                    if (arrayAdapter != null) {
+                        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        spinner.adapter = arrayAdapter
+                        spinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+                            override fun onItemSelected(
+                                parent: AdapterView<*>?,
+                                view: View?,
+                                position: Int,
+                                id: Long
+                            ) {
+                                viewModel.getHospital(hospital,spinner.getItemAtPosition(position).toString())
+                                    .get()
+                                    .addOnSuccessListener {
+                                        document->
+                                        binding.maximumPersonTxt.text=document.getString("setPerson").toString()
+                                        val maxPerson = document.getString("maxPerson")?.toInt() ?:0
+                                        val setPerson = document.getString("setPerson")?.toInt() ?:0
+                                        val peopleRegister = setPerson.minus(maxPerson)
+                                        binding.registerPersonTxt.text=peopleRegister.toString()
+                                    }
+                            }
+
+                            override fun onNothingSelected(parent: AdapterView<*>?) {
+                                Toast.makeText(context, "tidak bisa", Toast.LENGTH_SHORT).show()
+                            }
+
+                        }
+                    }
                 }
             }
-        super.onViewCreated(view, savedInstanceState)
     }
 
+
+
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            Toast.makeText(context, "coba", Toast.LENGTH_SHORT).show()
+        }
+
+        override fun onNothingSelected(parent: AdapterView<*>?) {
+                Toast.makeText(context, "gagal", Toast.LENGTH_SHORT).show()
+            }
+
 }
+
+
+

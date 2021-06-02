@@ -72,7 +72,9 @@ class SymptomTwoFragment : Fragment() {
         }
 
         binding.btnNextThree.setOnClickListener {
+            val name=SymptomTwoFragmentArgs.fromBundle(arguments as Bundle).name
             val toSymptomsThree = SymptomTwoFragmentDirections.actionSymptomTwoFragmentToSymptomThreeFragment()
+            toSymptomsThree.name= name
             toSymptomsThree.sakitPernapasan = sakitPernapasan
             toSymptomsThree.demam = demam
             toSymptomsThree.batukKering = batukKering
@@ -87,7 +89,7 @@ class SymptomTwoFragment : Fragment() {
 
             if (validate()){
                 view.findNavController()
-                    .navigate(R.id.action_symptomTwoFragment_to_symptomThreeFragment)
+                    .navigate(toSymptomsThree)
             }else {
                 Toast.makeText(context, "Mohon jawab semua pertanyaan", Toast.LENGTH_SHORT).show()
             }

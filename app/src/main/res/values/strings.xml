@@ -90,14 +90,16 @@
     <string name="memakai_masker">Memakai masker</string>
     <string name="menggunakan_hand_sanitizer">Menggunakan hand sanitizer</string>
     <string name="megikuti_acara_besar">Megikuti acara besar</string>
-    <string name="tanggal">tanggal</string>
-    <string name="pilih_tanggal">Pilih tanggal:</string>
-    <!---->
 
 
     <!--Date page-->
     <string name="Date_page_title">Tanggal Vaksin</string>
-    <string name="Date_page_date_time">12/5/2021</string>
+    <string name="Date_page_date_time"> </string>
+    <string name="Date_page_hospital"> </string>
+
+
+
+
 
 
     <!--positive covid-19 page-->
@@ -115,5 +117,22 @@
     <string name="vaccinate_person_title">Jumlah maksimal</string>
     <string name="vaccinate_person_input">orang</string>
     <string name="vaccinate_person_btn">Update</string>
+
+
+    <!--choose date-->
+    <string name="date_page_title">Pilih jadwal</string>
+    <string name="date_page_btn">Pilih</string>
+
+
+    <!--vaccine date-->
+    <string name="daftar_vaksin">Daftar Vaskin</string>
+    <string name="daftar_tgl">Pilih Tanggal</string>
+    <string name="pilih_hospital">Pilih Rumah Sakit</string>
+
+<!--    admin list dat-->
+    <string name="list_date_title">Check tanggal vaksin</string>
+    <string name="list_date_max_people_title">Maksimal pendaftaran : </string>
+    <string name="list_date_registered_people">Jumlah orang terdaftar</string>
+
 
 </resources>
