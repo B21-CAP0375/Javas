@@ -101,8 +101,9 @@ class ChooseDateVaccineFragment : Fragment() {
                                                                 viewModel.setHospital(hospitalName,spinner.getItemAtPosition(position).toString())
                                                                     .get()
                                                                     .addOnSuccessListener {
-                                                                            documents->   var maxPerson =
-                                                                        documents.getString("maxPerson")?.toInt() ?: 0
+                                                                            documents->
+                                                                        val setPerson = document.getString("setPerson")
+                                                                        var maxPerson = documents.getString("maxPerson")?.toInt() ?: 0
                                                                         var status=true
                                                                         if (maxPerson!=0){
                                                                             maxPerson -= 1
@@ -114,6 +115,7 @@ class ChooseDateVaccineFragment : Fragment() {
                                                                         val hospital = hashMapOf(
                                                                             "date" to spinner.getItemAtPosition(position).toString(),
                                                                             "maxPerson" to a,
+                                                                            "setPerson" to setPerson,
                                                                             "status" to status
                                                                         )
                                                                         viewModel.reduceUser(hospitalName,spinner.getItemAtPosition(position).toString())

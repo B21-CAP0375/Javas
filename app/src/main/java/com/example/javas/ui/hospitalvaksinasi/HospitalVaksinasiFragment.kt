@@ -51,6 +51,7 @@ class HospitalVaksinasiFragment : Fragment() {
                 val hospital = hashMapOf(
                     "date" to date,
                     "maxPerson" to maxPerson,
+                    "setPerson" to maxPerson,
                     "status" to true
                 )
                 Toast.makeText(context, "Data berhasil masuk", Toast.LENGTH_SHORT).show()

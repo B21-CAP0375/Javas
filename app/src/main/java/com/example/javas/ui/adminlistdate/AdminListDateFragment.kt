@@ -41,6 +41,7 @@ class AdminListDateFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val subjects: MutableList<String> = ArrayList()
 
         viewModel.getUser(hospital)
+            .whereEqualTo("status",true)
             .get()
             .addOnSuccessListener { documents->
                 for (document in documents) {
@@ -50,6 +51,30 @@ class AdminListDateFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     if (arrayAdapter != null) {
                         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         spinner.adapter = arrayAdapter
+                        spinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+                            override fun onItemSelected(
+                                parent: AdapterView<*>?,
+                                view: View?,
+                                position: Int,
+                                id: Long
+                            ) {
+                                viewModel.getHospital(hospital,spinner.getItemAtPosition(position).toString())
+                                    .get()
+                                    .addOnSuccessListener {
+                                        document->
+                                        binding.maximumPersonTxt.text=document.getString("setPerson").toString()
+                                        val maxPerson = document.getString("maxPerson")?.toInt() ?:0
+                                        val setPerson = document.getString("setPerson")?.toInt() ?:0
+                                        val peopleRegister = setPerson.minus(maxPerson)
+                                        binding.registerPersonTxt.text=peopleRegister.toString()
+                                    }
+                            }
+
+                            override fun onNothingSelected(parent: AdapterView<*>?) {
+                                Toast.makeText(context, "tidak bisa", Toast.LENGTH_SHORT).show()
+                            }
+
+                        }
                     }
                 }
             }

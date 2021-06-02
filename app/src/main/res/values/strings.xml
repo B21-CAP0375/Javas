@@ -129,4 +129,10 @@
     <string name="daftar_tgl">Pilih Tanggal</string>
     <string name="pilih_hospital">Pilih Rumah Sakit</string>
 
+<!--    admin list dat-->
+    <string name="list_date_title">Check tanggal vaksin</string>
+    <string name="list_date_max_people_title">Maksimal pendaftaran : </string>
+    <string name="list_date_registered_people">Jumlah orang terdaftar</string>
+
+
 </resources>
