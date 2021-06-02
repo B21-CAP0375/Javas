@@ -1,15 +1,13 @@
 package com.example.javas.ui.register
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
-import com.example.javas.R
-import com.example.javas.databinding.FragmentRegisterOneBinding
 import com.example.javas.databinding.FragmentRegisterTwoBinding
 
 
@@ -19,14 +17,12 @@ class RegisterTwoFragment : Fragment() {
     private val binding get() = _binding
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegisterTwoBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
 
@@ -65,9 +61,11 @@ class RegisterTwoFragment : Fragment() {
             toRegisterThree.month= binding.dobEdtxtMonth.text.toString()
             toRegisterThree.year= binding.dobEdtxtYear.text.toString()
             toRegisterThree.bornPlace = binding.birthPlaceEdtxt.text.toString()
-            toRegisterThree.kelamin = binding.genderEdtxt.text.toString()
+            toRegisterThree.kelamin = binding.genderEdtxt.text.toString().lowercase()
             if (validate()){
                 view.findNavController().navigate(toRegisterThree)
+            }else {
+                Toast.makeText(context, "Mohon jawab semua pertanyaan", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -104,9 +102,11 @@ class RegisterTwoFragment : Fragment() {
 
 
         if (nameCheck.isEmpty()) {
+            binding.nameEdtxt.error = "Mohon isi nama Anda"
             valid=false
         }
         if (nikCheck.isEmpty()||nikCheck.toString().length !=16){
+            binding.nikEdtxt.error = "Mohon isi 16 karakter NIK Anda"
             valid=false
         }
 
@@ -114,15 +114,19 @@ class RegisterTwoFragment : Fragment() {
             ||dobDayCheck.toString().toInt()>31||dobMonthCheck.toString().toInt()>12
             ||dobYearCheck.toString().toInt()<1980||dobYearCheck.toString().toInt()>2021){
             valid=false
+            Toast.makeText(context, "Mohon isi tanggal lahir Anda!", Toast.LENGTH_SHORT).show()
         }
 
         if (placeCheck.isEmpty()){
+            binding.birthPlaceEdtxt.error = "Mohon isi tempat lahir Anda"
             valid=false
         }
         if (genderCheck.isEmpty()){
+            binding.genderEdtxt.error = "Mohon isi jenis kelamin Anda"
             valid=false
         }
         if (genderCheck.toString()!="pria"&& genderCheck.toString()!="wanita"){
+            binding.genderEdtxt.error = "Mohon isi hanya pria atau wanita"
             valid=false
         }
         return valid

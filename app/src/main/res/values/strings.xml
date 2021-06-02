@@ -23,15 +23,15 @@
     <string name="register_email_input">Email</string>
     <string name="register_password_input">Password</string>
     <string name="register_nik_input">NIK</string>
-    <string name="register_name_input">Name</string>
+    <string name="register_name_input">Nama</string>
     <string name="register_dob_input">Tanggal Lahir</string>
-    <string name="register_dob_input_day">Hari</string>
+    <string name="register_dob_input_day">Tanggal</string>
     <string name="register_dob_input_month">Bulan</string>
     <string name="register_dob_input_year">Tahun</string>
     <string name="register_birth_place_input">Tempat Lahir</string>
     <string name="register_phone_input">No.Handphone</string>
     <string name="register_alamat_input">Tempat Tinggal</string>
-    <string name="register_gender_input">Jenis Kelamin</string>
+    <string name="register_gender_input">Jenis Kelamin (pria atau wanita)</string>
 
 
     <!--Home Page-->
@@ -67,8 +67,8 @@
     <string name="_4_4">4/4</string>
     <string name="check_result">CHECK RESULT</string>
     <string name="next">NEXT</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
     <string name="breathing_problem">Sakit pernapasan</string>
     <string name="fever">Demam</string>
     <string name="dry_cough">Batuk kering</string>

@@ -109,14 +109,29 @@ class SymptomFourFragment : Fragment() {
                 .document("symptom")
                 .set(symptom)
 
-            if (status){
-                view.findNavController().navigate(toPositive)
+            if (validate()){
+                if (status){
+                    view.findNavController().navigate(toPositive)
+                }else{
+                    view.findNavController().navigate(toResult)
+                }
             }else{
-                view.findNavController().navigate(toResult)
+                Toast.makeText(context, "Mohon jawab semua pertanyaan", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 
+    private fun validate(): Boolean {
+        var valid = true
+        if (binding.rgMengikuti.checkedRadioButtonId == -1
+            || binding.rgAnggota.checkedRadioButtonId == -1
+            || binding.rgBertemu.checkedRadioButtonId == -1
+            || binding.rgHand.checkedRadioButtonId == -1
+            || binding.rgMasker.checkedRadioButtonId == -1) {
+
+            valid = false
+        }
+        return valid
+    }
 
 }
