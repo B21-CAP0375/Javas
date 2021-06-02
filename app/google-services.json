@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "78283690821",
+    "project_id": "tribal-booth-310714",
+    "storage_bucket": "tribal-booth-310714.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78283690821:android:c54350fe65df6cf1b0242c",
+        "android_client_info": {
+          "package_name": "com.example.javas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78283690821-s60n2fer05ivff4u24uiqverqmj7f7l3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQugh3zTShKykEtSeq88FhxUWgjmYQ04Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78283690821-s60n2fer05ivff4u24uiqverqmj7f7l3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

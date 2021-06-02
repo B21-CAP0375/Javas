@@ -76,7 +76,9 @@ class SymptomThreeFragment : Fragment() {
             }
         }
         binding.btnNextFour.setOnClickListener {
+            val name = SymptomThreeFragmentArgs.fromBundle(arguments as Bundle).name
             val toSymptomsFour = SymptomThreeFragmentDirections.actionSymptomThreeFragmentToSymptomFourFragment()
+            toSymptomsFour.name= name
             toSymptomsFour.sakitPernapasan = sakitPernapasan
             toSymptomsFour.demam = demam
             toSymptomsFour.batukKering = batukKering
@@ -95,7 +97,7 @@ class SymptomThreeFragment : Fragment() {
 
             if (validate()){
                 view.findNavController()
-                    .navigate(R.id.action_symptomThreeFragment_to_symptomFourFragment)
+                    .navigate(toSymptomsFour)
             }else {
                 Toast.makeText(context, "Mohon jawab semua pertanyaan", Toast.LENGTH_SHORT).show()
             }

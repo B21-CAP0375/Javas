@@ -7,28 +7,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.javas.R
 import com.example.javas.databinding.FragmentRegisterOneBinding
 import com.example.javas.databinding.FragmentRegisterThreeBinding
+import com.example.javas.utils.ViewModelFactory
 
 
 class RegisterThreeFragment : Fragment() {
 
     private lateinit var  _binding: FragmentRegisterThreeBinding
     private val binding get() = _binding
+    private lateinit var  viewModel: RegisterViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegisterThreeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        viewModel = ViewModelProvider(this, factory)[RegisterViewModel::class.java]
+
         val email = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).email
         val password = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).password
         val name = RegisterThreeFragmentArgs.fromBundle(arguments as Bundle).name
@@ -46,11 +55,50 @@ class RegisterThreeFragment : Fragment() {
 
         //sebelum pindah masukan data registrasi ke dalam server
         binding.btnRegisterRegisterPage.setOnClickListener {
-            val toHomePage = RegisterThreeFragmentDirections.actionRegisterThreeFragmentToHomePageFragment()
-            toHomePage.name=name
+            val users = hashMapOf(
+                "email" to email,
+                "password" to password,
+                "name" to name,
+                "nik" to nik,
+                "dob" to dob,
+                "place" to place,
+                "gender" to gender,
+                "phone" to binding.phoneEdtxt.text.toString(),
+                "alamat" to binding.alamatEdtxt.text.toString(),
+                "role" to "user"
+            )
+//            val symptom = hashMapOf(
+//                "covid-19" to false
+//            )
+//            val vaccineDate = hashMapOf(
+//                "vaccineDate" to " "
+//            )
 
+            val toHomePage = RegisterThreeFragmentDirections.actionRegisterThreeFragmentToHomePageFragment()
+            toHomePage.name=email
             if (validate()){
-                view.findNavController().navigate(toHomePage)
+                activity?.let {
+                    viewModel.register(email, password)
+                        .addOnCompleteListener(it) { task ->
+                            if (task.isSuccessful) {
+                                viewModel.createUser(email)
+                                    .set(users)
+
+//                                viewModel.createUser(email)
+//                                    .collection("vaccination")
+//                                    .document("symptom")
+//                                    .set(symptom)
+//
+//                                viewModel.createUser(email)
+//                                    .collection("vaccination")
+//                                    .document("vaccineDate")
+//                                    .set(vaccineDate)
+                                // Sign in success, update UI with the signed-in user's information
+                                view.findNavController().navigate(toHomePage)
+                                // If sign in fails, display a message to the user.
+                            }
+                        }
+                }
             }
         }
 
