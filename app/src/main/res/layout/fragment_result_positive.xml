@@ -5,33 +5,60 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.resultpositivepage.ResultPositiveFragment"
+    android:background="#145589"
     android:padding="25dp">
 
     <TextView
         android:id="@+id/Positive_result_title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
         android:text="@string/positive_covid_text"
-        android:textSize="28sp"
-        android:layout_marginTop="150dp"
         android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/Positive_result_title_and"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/positive_covid_text_and"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Positive_result_title" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="351dp"
+        android:layout_height="237dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/covid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Positive_result_title_and" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_back_positive_page"
         android:layout_width="264dp"
         android:layout_height="40dp"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/background_button_grey_primary"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/background_button_blue_primary"
         android:scaleType="fitXY"
         android:text="@string/register_back_btn_txt"
-        android:textColor="#B9B9B9"
+        android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Positive_result_title"/>
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

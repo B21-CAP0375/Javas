@@ -36,7 +36,7 @@
 
     <!--Home Page-->
     <string name="home_page_title">Selamat Datang,</string>
-    <string name="home_page_user_title">Nama</string>
+    <string name="home_page_user_title"><b>Nama</b></string>
 
 
     <!--User profile-->
@@ -103,7 +103,8 @@
 
 
     <!--positive covid-19 page-->
-    <string name="positive_covid_text">Anda memiliki indikasi covid-19 silakan periksa ke fasilitas kesehatan terdekat</string>
+    <string name="positive_covid_text">Anda memiliki indikasi covid-19!</string>
+    <string name="positive_covid_text_and">Silakan periksa ke fasilitas kesehatan terdekat, dan tetap patuhi protokol kesehatan!</string>
 
 
     <!--dashboard admin-->
