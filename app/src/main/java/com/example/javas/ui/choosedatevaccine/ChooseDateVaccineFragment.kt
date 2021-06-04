@@ -86,7 +86,9 @@ class ChooseDateVaccineFragment : Fragment() {
                                                     ) {
                                                         val vaccineDate = hashMapOf(
                                                             "vaccineDate" to spinner.getItemAtPosition(position).toString(),
-                                                            "hospital" to hospitalName
+                                                            "hospital" to hospitalName,
+                                                            "status" to true,
+                                                            "name" to name
                                                         )
                                                         binding.btnLoginLoginPage.setOnClickListener {
                                                             getUser

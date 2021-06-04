@@ -45,8 +45,9 @@ class HomePageFragment : Fragment() {
                 .get()
                 .addOnSuccessListener {
                     document->
+                    val status = document.getBoolean("status")
                     val date = document.getString("vaccineDate")
-                    if (date !=null){
+                    if (status == true){
                         Toast.makeText(context, "Anda sudah terdaftar vaksin pada $date ", Toast.LENGTH_SHORT).show()
                     }
                     else{
