@@ -112,7 +112,7 @@ class RegisterTwoFragment : Fragment() {
 
         if (dobDayCheck.isEmpty()||dobMonthCheck.isEmpty()||dobYearCheck.isEmpty()
             ||dobDayCheck.toString().toInt()>31||dobMonthCheck.toString().toInt()>12
-            ||dobYearCheck.toString().toInt()<1980||dobYearCheck.toString().toInt()>2021){
+            ||dobYearCheck.toString().toInt()<1880||dobYearCheck.toString().toInt()>2021){
             valid=false
             Toast.makeText(context, "Mohon isi tanggal lahir Anda!", Toast.LENGTH_SHORT).show()
         }
