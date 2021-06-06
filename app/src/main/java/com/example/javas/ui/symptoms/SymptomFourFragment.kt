@@ -111,6 +111,7 @@ class SymptomFourFragment : Fragment() {
 
             if (validate()){
                 if (status){
+                    Toast.makeText(context, "Anda tidak terindikasi covid-19", Toast.LENGTH_SHORT).show()
                     view.findNavController().navigate(toPositive)
                 }else{
                     view.findNavController().navigate(toResult)
