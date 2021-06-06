@@ -110,6 +110,10 @@
     <string name="positive_covid_text">Anda memiliki indikasi covid-19!</string>
     <string name="positive_covid_text_and">Silakan periksa ke fasilitas kesehatan terdekat, dan tetap patuhi protokol kesehatan!</string>
 
+    <string name="negative_covid_text">Anda tidak ada indikasi covid-19!</string>
+    <string name="negative_covid_text_and">Silakan melanjutkan ke pendaftaran</string>
+    <string name="btn_negative">Lanjutkan</string>
+
 
     <!--dashboard admin-->
     <string name="dashboard_page_title">Rumah Sakit</string>

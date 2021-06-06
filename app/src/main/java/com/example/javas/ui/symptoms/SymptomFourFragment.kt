@@ -91,10 +91,10 @@ class SymptomFourFragment : Fragment() {
 
         binding.btnNextResult.setOnClickListener {
             val name = SymptomFourFragmentArgs.fromBundle(arguments as Bundle).name
-            val toResult = SymptomFourFragmentDirections.actionSymptomFourFragmentToChooseDateVaccineFragment()
+            val toResult = SymptomFourFragmentDirections.actionSymptomFourFragmentToResultNegativeFragment()
             toResult.name=name
 
-            val toPositive = SymptomFourFragmentDirections.actionSymptomFourFragmentToResultPositiveFragment()
+            val toPositive = SymptomFourFragmentDirections.actionSymptomFourFragmentToResultNegativeFragment()
             toPositive.name=name
 
             var status = false
@@ -111,9 +111,9 @@ class SymptomFourFragment : Fragment() {
 
             if (validate()){
                 if (status){
-                    Toast.makeText(context, "Anda tidak terindikasi covid-19", Toast.LENGTH_SHORT).show()
                     view.findNavController().navigate(toPositive)
                 }else{
+                    Toast.makeText(context, "Anda tidak terindikasi covid-19", Toast.LENGTH_SHORT).show()
                     view.findNavController().navigate(toResult)
                 }
             }else{

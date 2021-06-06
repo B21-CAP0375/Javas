@@ -499,6 +499,9 @@
         <action
             android:id="@+id/action_symptomFourFragment_to_chooseDateVaccineFragment"
             app:destination="@id/chooseDateVaccineFragment" />
+        <action
+            android:id="@+id/action_symptomFourFragment_to_resultNegativeFragment"
+            app:destination="@id/resultNegativeFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -624,5 +627,18 @@
         <action
             android:id="@+id/action_updateUserFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultNegativeFragment"
+        android:name="com.example.javas.ui.resultnegativepage.ResultNegativeFragment"
+        android:label="fragment_result_negative"
+        tools:layout="@layout/fragment_result_negative" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
+        <action
+            android:id="@+id/action_resultNegativeFragment_to_chooseDateVaccineFragment"
+            app:destination="@id/chooseDateVaccineFragment" />
     </fragment>
 </navigation>
