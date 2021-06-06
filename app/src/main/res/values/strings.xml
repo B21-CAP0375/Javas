@@ -93,9 +93,9 @@
 
 
     <!--Date page-->
-    <string name="Date_page_title">Tanggal Vaksin</string>
-    <string name="Date_page_date_time"> </string>
-    <string name="Date_page_hospital"> </string>
+    <string name="Date_page_title">Jadwal Vaksin Anda</string>
+    <string name="Date_page_date_time">31–12–2222</string>
+    <string name="Date_page_hospital">RS.CONTOH BLABLABLAASSADASD</string>
 
 
 
@@ -134,6 +134,8 @@
     <string name="list_date_title">Check tanggal vaksin</string>
     <string name="list_date_max_people_title">Maksimal pendaftaran : </string>
     <string name="list_date_registered_people">Jumlah orang terdaftar</string>
+    <string name="icon1">icon1</string>
+    <string name="icon2">icon2</string>
 
 
 </resources>
