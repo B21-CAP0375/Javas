@@ -4,7 +4,7 @@
 
 
     <!--landing page-->
-    <string name="landing_page_title">JaVas</string>
+    <string name="landing_page_title"><b>JaVas</b></string>
     <string name="Landing_page_text">Mari Vaksinasi Bersama Kami</string>
 
 
@@ -47,7 +47,7 @@
     <!--Button -->
     <string name="login_btn_txt">Log In</string>
     <string name="register_btn_txt">Daftar</string>
-    <string name="login_admin_btn_txt">Admin Login Kesini</string>
+    <string name="login_admin_btn_txt"><u>Admin Login Klik Disini</u></string>
     <string name="register_btn_txt_borderless">Ingin membuat akun</string>
     <string name="register_continue_btn_txt">Lanjutkan</string>
     <string name="register_back_btn_txt">Kembali</string>
