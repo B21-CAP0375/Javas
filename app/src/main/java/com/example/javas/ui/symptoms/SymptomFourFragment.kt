@@ -168,6 +168,7 @@ class SymptomFourFragment : Fragment() {
                             input.putFloat(anggotaKeluargaBekerja())
 
 
+
 //                            input.putFloat(1f)
 //                            input.putFloat(1f)
 //                            input.putFloat(1f)
