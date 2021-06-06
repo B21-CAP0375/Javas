@@ -4,7 +4,7 @@
 
 
     <!--landing page-->
-    <string name="landing_page_title">JaVas</string>
+    <string name="landing_page_title"><b>JaVas</b></string>
     <string name="Landing_page_text">Mari Vaksinasi Bersama Kami</string>
 
 
@@ -55,7 +55,7 @@
     <!--Button -->
     <string name="login_btn_txt">Log In</string>
     <string name="register_btn_txt">Daftar</string>
-    <string name="login_admin_btn_txt">Admin Login Kesini</string>
+    <string name="login_admin_btn_txt"><u>Admin Login Klik Disini</u></string>
     <string name="register_btn_txt_borderless">Ingin membuat akun</string>
     <string name="register_continue_btn_txt">Lanjutkan</string>
     <string name="register_back_btn_txt">Kembali</string>
@@ -101,9 +101,9 @@
 
 
     <!--Date page-->
-    <string name="Date_page_title">Tanggal Vaksin</string>
-    <string name="Date_page_date_time"> </string>
-    <string name="Date_page_hospital"> </string>
+    <string name="Date_page_title">Jadwal Vaksin Anda</string>
+    <string name="Date_page_date_time">31–12–2222</string>
+    <string name="Date_page_hospital">RS.CONTOH BLABLABLAASSADASD</string>
 
 
     <!--positive covid-19 page-->
@@ -142,6 +142,8 @@
     <string name="list_date_title">Check tanggal vaksin</string>
     <string name="list_date_max_people_title">Maksimal pendaftaran : </string>
     <string name="list_date_registered_people">Jumlah orang terdaftar</string>
+    <string name="icon1">icon1</string>
+    <string name="icon2">icon2</string>
 
 
 </resources>
