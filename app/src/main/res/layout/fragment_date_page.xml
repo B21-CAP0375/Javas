@@ -5,44 +5,84 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.datepage.DatePageFragment"
+    android:background="#3D5AFE"
     android:padding="25dp">
 
     <TextView
         android:id="@+id/date_page_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="140dp"
         android:text="@string/Date_page_title"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="34sp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/date_edt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="44dp"
-        android:text="@string/Date_page_date_time"
-        android:textAlignment="center"
+        android:gravity="center_vertical"
+        tools:text="@string/Date_page_date_time"
+        android:textColor="@color/white"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/date_page_title" />
 
     <TextView
         android:id="@+id/hospital_edt"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="44dp"
-        android:text="@string/Date_page_hospital"
-        android:textAlignment="center"
+        android:gravity="center_vertical"
+        tools:text="@string/Date_page_hospital"
+        android:textColor="@color/white"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/date_edt" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/ic_baseline_date_range_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_page_title"
+        android:contentDescription="@string/icon1" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/ic_baseline_location_city_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_edt"
+        android:contentDescription="@string/icon2" />
+
+    <Button
+        android:id="@+id/btn_batal_vaksin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/batal_vaksinasi"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hospital_edt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

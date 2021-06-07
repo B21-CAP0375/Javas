@@ -4,7 +4,7 @@
 
 
     <!--landing page-->
-    <string name="landing_page_title">JaVas</string>
+    <string name="landing_page_title"><b>JaVas</b></string>
     <string name="Landing_page_text">Mari Vaksinasi Bersama Kami</string>
 
 
@@ -23,23 +23,31 @@
     <string name="register_email_input">Email</string>
     <string name="register_password_input">Password</string>
     <string name="register_nik_input">NIK</string>
-    <string name="register_name_input">Name</string>
+    <string name="register_name_input">Nama</string>
     <string name="register_dob_input">Tanggal Lahir</string>
-    <string name="register_dob_input_day">Hari</string>
+    <string name="register_dob_input_day">Tanggal</string>
     <string name="register_dob_input_month">Bulan</string>
     <string name="register_dob_input_year">Tahun</string>
     <string name="register_birth_place_input">Tempat Lahir</string>
     <string name="register_phone_input">No.Handphone</string>
     <string name="register_alamat_input">Tempat Tinggal</string>
-    <string name="register_gender_input">Jenis Kelamin</string>
+    <string name="register_gender_input">Jenis Kelamin (pria atau wanita)</string>
 
 
     <!--Home Page-->
     <string name="home_page_title">Selamat Datang,</string>
-    <string name="home_page_user_title">Nama</string>
+    <string name="home_page_user_title"><b>Nama</b></string>
 
 
     <!--User profile-->
+    <string name="user_profile_txt">User Profile</string>
+    <string name="user_nik_txt">NIK: </string>
+    <string name="user_name_txt">Nama: </string>
+    <string name="user_gender_txt">Jenis Kelamin: </string>
+    <string name="user_dob_txt">Tanggal Lahir: </string>
+    <string name="user_birthplace_txt">Tempat Lahir: </string>
+    <string name="user_alamat_txt">Alamat: </string>
+    <string name="user_phone_txt">No Handphone: </string>
     <string name="user_profile_current_password_input">Password lama</string>
     <string name="user_profile_new_password_input">Password baru</string>
 
@@ -47,7 +55,7 @@
     <!--Button -->
     <string name="login_btn_txt">Log In</string>
     <string name="register_btn_txt">Daftar</string>
-    <string name="login_admin_btn_txt">Admin Login Kesini</string>
+    <string name="login_admin_btn_txt"><u>Admin Login Klik Disini</u></string>
     <string name="register_btn_txt_borderless">Ingin membuat akun</string>
     <string name="register_continue_btn_txt">Lanjutkan</string>
     <string name="register_back_btn_txt">Kembali</string>
@@ -67,8 +75,8 @@
     <string name="_4_4">4/4</string>
     <string name="check_result">CHECK RESULT</string>
     <string name="next">NEXT</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
     <string name="breathing_problem">Sakit pernapasan</string>
     <string name="fever">Demam</string>
     <string name="dry_cough">Batuk kering</string>
@@ -93,17 +101,18 @@
 
 
     <!--Date page-->
-    <string name="Date_page_title">Tanggal Vaksin</string>
-    <string name="Date_page_date_time"> </string>
-    <string name="Date_page_hospital"> </string>
-
-
-
-
+    <string name="Date_page_title">Jadwal Vaksin Anda</string>
+    <string name="Date_page_date_time">31–12–2222</string>
+    <string name="Date_page_hospital">RS.CONTOH BLABLABLAASSADASD</string>
 
 
     <!--positive covid-19 page-->
-    <string name="positive_covid_text">Anda memiliki indikasi covid-19 silakan periksa ke fasilitas kesehatan terdekat</string>
+    <string name="positive_covid_text">Anda memiliki indikasi covid-19!</string>
+    <string name="positive_covid_text_and">Silakan periksa ke fasilitas kesehatan terdekat, dan tetap patuhi protokol kesehatan!</string>
+
+    <string name="negative_covid_text">Anda tidak ada indikasi covid-19!</string>
+    <string name="negative_covid_text_and">Silakan melanjutkan ke pendaftaran</string>
+    <string name="btn_negative">Lanjutkan</string>
 
 
     <!--dashboard admin-->
@@ -125,14 +134,17 @@
 
 
     <!--vaccine date-->
-    <string name="daftar_vaksin">Daftar Vaskin</string>
+    <string name="daftar_vaksin"><b>Daftar Vaskin</b></string>
     <string name="daftar_tgl">Pilih Tanggal</string>
     <string name="pilih_hospital">Pilih Rumah Sakit</string>
 
-<!--    admin list dat-->
+    <!--    admin list dat-->
     <string name="list_date_title">Check tanggal vaksin</string>
     <string name="list_date_max_people_title">Maksimal pendaftaran : </string>
     <string name="list_date_registered_people">Jumlah orang terdaftar</string>
+    <string name="icon1">icon1</string>
+    <string name="icon2">icon2</string>
+    <string name="batal_vaksinasi">Batal Vaksinasi</string>
 
 
 </resources>

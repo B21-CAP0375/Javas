@@ -2,7 +2,6 @@ package com.example.javas.data
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
 
 class UserRepository (
     private val firebaseAuth: FirebaseAuth,
@@ -37,7 +36,7 @@ class UserRepository (
     //user profile page
     fun updatePassword(newPassWord: String) = firebaseAuth.currentUser?.updatePassword(newPassWord)
 
-    fun checkPassword(email: String,password: String)=firestore.collection("users").document(email)
+    fun checkPassword(email: String)=firestore.collection("users").document(email)
 
     fun updatePasswordFire(email: String , newPassWord:String) = firestore.collection("users").document(email).update("password", newPassWord)
     fun updatePhone(email: String , phone:String) = firestore.collection("users").document(email).update("phone", phone)
@@ -45,7 +44,7 @@ class UserRepository (
 
 
     fun getVaccineDate(email: String)=firestore.collection("users").document(email).collection("vaccination").document("vaccineDate")
-
+    fun deleteVaccine(email: String) =firestore.collection("users").document(email).collection("vaccination").document("vaccineDate").delete()
 
     //admin vaksinasi time
     fun setHospital(hospital:String, date:String) = firestore.collection(hospital).document(date)

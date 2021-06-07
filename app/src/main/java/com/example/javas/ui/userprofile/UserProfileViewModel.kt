@@ -7,7 +7,6 @@ class UserProfileViewModel (
     private val repository: UserRepository
 ) : ViewModel() {
 
-    fun checkPassword(email:String,password:String) = repository.checkPassword(email, password)
 
     fun updatePassword(newPassword: String) = repository.updatePassword(newPassword)
 

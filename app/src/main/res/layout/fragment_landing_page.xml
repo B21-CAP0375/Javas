@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.landingpage.LandingPageFragment">
+    tools:context=".ui.landingpage.LandingPageFragment"
+    android:background="#3D5AFE">
 
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -16,6 +17,7 @@
         android:text="@string/landing_page_title"
         android:textAlignment="center"
         android:textSize="42sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,10 +28,10 @@
         android:id="@+id/landing_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="36dp"
         android:text="@string/Landing_page_text"
         android:textAlignment="center"
-        android:textColor="#8E8D8D"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -56,7 +58,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/background_button_grey_primary"
         android:text="@string/register_btn_txt"
-        android:textColor="#B9B9B9"
+        android:textColor="#716C6C"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +72,8 @@
         android:layout_marginTop="25dp"
         android:text="@string/login_admin_btn_txt"
         android:textSize="14sp"
+        android:textColor="@color/white"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_register" />

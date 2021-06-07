@@ -35,6 +35,10 @@ android {
     }
     buildFeatures {
         viewBinding true
+        mlModelBinding true
+    }
+    aaptOptions {
+        noCompress "tflite"  // Your model's file extension: "tflite", "lite", etc.
     }
 }
 
@@ -59,6 +63,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
+
+
+
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc2'
+    implementation 'com.google.firebase:firebase-ml-modeldownloader-ktx:24.0.0'
+
+    implementation 'org.tensorflow:tensorflow-lite:2.5.0'
 
 
 }

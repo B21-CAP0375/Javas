@@ -5,15 +5,18 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.homepage.HomePageFragment"
+    android:background="#3D5AFE"
     android:padding="25dp">
 
     <TextView
         android:id="@+id/home_page_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="@string/home_page_title"
-        android:textSize="32sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,48 +25,138 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/home_page_user_title"
-        android:textSize="30sp"
+        android:textSize="32sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_page_title" />
 
-    <androidx.appcompat.widget.AppCompatButton
+
+
+    <ImageButton
         android:id="@+id/btn_vaksinasi_home_page"
-        android:layout_width="264dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/background_button_blue_primary"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selectable_button_bg"
+        android:scaleType="centerCrop"
+        android:src="@drawable/covid19"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_page_user_title" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#7F000000"
+        app:layout_constraintBottom_toBottomOf="@id/btn_vaksinasi_home_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_space"
+        tools:layout_editor_absoluteX="-3dp" />
+
+    <Space
+        android:id="@+id/top_space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@id/btn_vaksinasi_home_page"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/home_page_vaksinasi_btn_txt"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_page_user_title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_vaksinasi_home_page"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="@+id/view2" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btn_jadwal_home_page"
-        android:layout_width="264dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/background_button_blue_primary"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selectable_button_bg"
+        android:scaleType="centerCrop"
+        android:src="@drawable/jadwal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_vaksinasi_home_page"/>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#7F000000"
+        app:layout_constraintBottom_toBottomOf="@id/btn_jadwal_home_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_space1"
+        tools:layout_editor_absoluteX="-3dp" />
+
+    <Space
+        android:id="@+id/top_space1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@id/btn_jadwal_home_page"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/home_page_jadwal_btn_txt"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_vaksinasi_home_page" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_jadwal_home_page"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="@+id/view3" />
 
-    <androidx.appcompat.widget.AppCompatButton
+
+    <ImageButton
         android:id="@+id/btn_profile_home_page"
-        android:layout_width="264dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/background_button_blue_primary"
-        android:text="@string/home_page_profile_btn_txt"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selectable_button_bg"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_jadwal_home_page" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_jadwal_home_page" />
 
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#7F000000"
+        app:layout_constraintBottom_toBottomOf="@id/btn_profile_home_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_space2"
+        tools:layout_editor_absoluteX="-3dp" />
+
+    <Space
+        android:id="@+id/top_space2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@id/btn_profile_home_page"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_page_profile_btn_txt"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_profile_home_page"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="@+id/view4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

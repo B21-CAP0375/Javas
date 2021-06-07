@@ -27,7 +27,9 @@ class ResultPositiveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnBackPositivePage.setOnClickListener {
+            val name = ResultPositiveFragmentArgs.fromBundle(arguments as Bundle).name
             val toHomePage =ResultPositiveFragmentDirections.actionResultPositiveFragmentToHomePageFragment()
+            toHomePage.name = name
             view.findNavController().navigate(toHomePage)
         }
     }

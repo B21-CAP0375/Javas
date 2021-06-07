@@ -40,29 +40,25 @@ class UserProfileFragment : Fragment() {
 
         val name = UserProfileFragmentArgs.fromBundle(arguments as Bundle).name
 
-        var checkPassword= "true"
-        viewModel.getUser(name).get().addOnSuccessListener {
-            document->
-            binding.phoneEdtxt.setText(document.getString("phone"))
-            binding.alamatEdtxt.setText(document.getString("alamat"))
-            checkPassword = document.getString("password").toString()
-        }
+        viewModel.getUser(name)
+            .get()
+            .addOnSuccessListener {
+                document->
+                binding.userNIK.text="NIK : ${document.getString("nik")}"
+                binding.userName.text="Nama : ${document.getString("name")}"
+                binding.userGender.text="Jenis Kelamin : ${document.getString("gender")}"
+                binding.userDob.text="Tanggal Lahir : ${document.getString("dob")}"
+                binding.userBirthplace.text="Tempat Lahir : ${document.getString("place")}"
+                binding.userPhone.text="No Handphone : ${document.getString("phone")}"
+                binding.userAlamat.text="Alamat : ${document.getString("alamat")}"
+            }
+
 
 
         binding.btnContinueLoginPage.setOnClickListener {
-            val phone = binding.phoneEdtxt.text.toString()
-            val alamat = binding.alamatEdtxt.text.toString()
-            val curPassword = binding.currentPasswordEdtxt.text.toString()
-            val password = binding.passwordEdtxt.text.toString()
-            viewModel.updatePhone(name,phone)
-            viewModel.updateAlamat(name,alamat)
-            var berhasil = "update berhasil"
-            if (checkPassword==curPassword){
-                viewModel.updatePasswordFire(name,password)
-                viewModel.updatePassword(password)
-                berhasil= "update berhasil password diganti"
-            }
-            Toast.makeText(context, berhasil, Toast.LENGTH_SHORT).show()
+            val toChangeUser = UserProfileFragmentDirections.actionUserProfileFragmentToUpdateUserFragment()
+            toChangeUser.name=name
+            view.findNavController().navigate(toChangeUser)
         }
         binding.btnBackRegisterPage.setOnClickListener {
             val toHomePage = UserProfileFragmentDirections.actionUserProfileFragmentToHomePageFragment()

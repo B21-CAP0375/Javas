@@ -99,6 +99,8 @@ class RegisterThreeFragment : Fragment() {
                             }
                         }
                 }
+            }else {
+                Toast.makeText(context, "Mohon jawab semua pertanyaan", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -143,9 +145,11 @@ class RegisterThreeFragment : Fragment() {
         val addressCheck = binding.alamatEdtxt.text
 
         if (phoneCheck.isEmpty()||phoneCheck.toString().length!=12){
+            binding.phoneEdtxt.error = "Mohon isi 12 digit no.handphone anda"
             valid =false
         }
         if (addressCheck.isEmpty()){
+            binding.alamatEdtxt.error = "Mohon isi alamat tinggal Anda"
             valid=false
         }
         return valid

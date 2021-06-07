@@ -88,7 +88,6 @@ class SymptomOneFragment : Fragment() {
 
 
         }
-
     }
 
     private fun validate(): Boolean {

@@ -8,78 +8,90 @@
     android:padding="25dp">
 
 
-
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_phone_edtxt"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:text="@string/user_profile_txt"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/phone_edtxt"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/register_phone_input"
-            android:inputType="phone" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_alamat_edtxt"
+    <TextView
+        android:id="@+id/user_NIK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/user_nik_txt"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_phone_edtxt">
-
-        <EditText
-            android:id="@+id/alamat_edtxt"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/register_alamat_input"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_current_password_edtxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"  />
+    <TextView
+        android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/user_name_txt"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_alamat_edtxt">
-
-        <EditText
-            android:id="@+id/current_password_edtxt"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/user_profile_current_password_input"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_password_edtxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_NIK" />
+    <TextView
+        android:id="@+id/user_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/user_gender_txt"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_current_password_edtxt">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_name" />
+    <TextView
+        android:id="@+id/user_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_dob_txt"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_gender" />
+    
+    <TextView
+        android:id="@+id/user_birthplace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_birthplace_txt"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_dob" />
+    
+    <TextView
+        android:id="@+id/user_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_alamat_txt"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_phone" />
+    
 
-        <EditText
-            android:id="@+id/password_edtxt"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/user_profile_new_password_input"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
+    <TextView
+        android:id="@+id/user_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_phone_txt"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_birthplace"/>
 
 
 
@@ -94,7 +106,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_back_register_page"
-        app:layout_constraintTop_toBottomOf="@id/layout_password_edtxt" />
+        app:layout_constraintTop_toBottomOf="@id/user_alamat" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_back_register_page"

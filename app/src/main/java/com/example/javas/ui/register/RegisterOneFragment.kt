@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
 import com.example.javas.R
-import com.example.javas.databinding.FragmentLoginBinding
 import com.example.javas.databinding.FragmentRegisterOneBinding
 
 
@@ -19,14 +19,12 @@ class RegisterOneFragment : Fragment() {
     private val binding get() = _binding
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegisterOneBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
 
@@ -48,6 +46,8 @@ class RegisterOneFragment : Fragment() {
 
             if (validate()){
                 view.findNavController().navigate(toRegisterTwo)
+            }else {
+                Toast.makeText(context, "Mohon jawab semua pertanyaan", Toast.LENGTH_SHORT).show()
             }
         }
         binding.btnBackRegisterPage.setOnClickListener{
@@ -67,15 +67,17 @@ class RegisterOneFragment : Fragment() {
     }
 
     private fun validate():Boolean{
-        var  valid = true
+        var valid = true
         val emailCheck = binding.emailEdtxt.text
         val passCheck = binding.passwordEdtxt.text
 
 
         if (emailCheck.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(emailCheck).matches()) {
+            binding.emailEdtxt.error = "Email tidak valid"
             valid=false
         }
         if (passCheck.isEmpty() || passCheck.length < 6 || passCheck.length > 10){
+            binding.passwordEdtxt.error = "Mohon isi 6 sampai 10 karakter"
             valid=false
         }
         return valid
