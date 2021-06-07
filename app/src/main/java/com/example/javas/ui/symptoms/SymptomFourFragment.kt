@@ -247,6 +247,7 @@ class SymptomFourFragment : Fragment() {
         }
     }
 
+
     private fun validate(): Boolean {
         var valid = true
         if (binding.rgMengikuti.checkedRadioButtonId == -1
