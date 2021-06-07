@@ -26,6 +26,7 @@ class LoginFragment : Fragment() {
 
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,23 +44,30 @@ class LoginFragment : Fragment() {
 
 
         binding.btnLoginLoginPage.setOnClickListener {
-            activity?.let {
-                val toHomePage = LoginFragmentDirections.actionLoginFragmentToHomePageFragment()
-                val docRef = viewModel.getUser(binding.emailEdtxt.text.toString())
+            if(validate()){
+                activity?.let {
+                    val toHomePage = LoginFragmentDirections.actionLoginFragmentToHomePageFragment()
+                    val docRef = viewModel.getUser(binding.emailEdtxt.text.toString())
+                    binding.progressBarDetails.visibility = View.VISIBLE
 
-                viewModel.login(binding.emailEdtxt.text.toString(),binding.passwordEdtxt.text.toString())
-                    .addOnCompleteListener(it) { task ->
-                        if (task.isSuccessful) {
-                            docRef.get()
-                                .addOnSuccessListener { document ->
-                                    if (document != null) {
-                                        toHomePage.name= document.getString("email").toString()
-                                        Toast.makeText(context, document.getString("email"), Toast.LENGTH_SHORT).show()
-                                        view.findNavController().navigate(toHomePage)
+                    viewModel.login(binding.emailEdtxt.text.toString(),binding.passwordEdtxt.text.toString())
+                        .addOnCompleteListener(it) { task ->
+                            if (task.isSuccessful) {
+                                docRef.get()
+                                    .addOnSuccessListener { document ->
+                                        if (document != null) {
+                                            toHomePage.name= document.getString("email").toString()
+                                            binding.progressBarDetails.visibility = View.GONE
+                                            view.findNavController().navigate(toHomePage)
+                                        }
                                     }
-                                }
+                            }
+                            else{
+                                binding.progressBarDetails.visibility = View.GONE
+                                Toast.makeText(context, "Email atau Password salah", Toast.LENGTH_SHORT).show()
+                            }
                         }
-                    }
+                }
             }
         }
         binding.btnRegisterLoginPage.setOnClickListener{
@@ -75,9 +83,11 @@ class LoginFragment : Fragment() {
         //passcheck dan emailcheck mendapatkan data dari api
         if (emailCheck.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(emailCheck).matches()) {
             valid=false
+            binding.emailEdtxt.error = "Email Kosong"
         }
-        if (passCheck.isEmpty() || passCheck.length < 6 || passCheck.length > 10){
+        if (passCheck.isEmpty() ){
             valid=false
+            binding.passwordEdtxt.error = "Password Kosong"
         }
         return valid
     }
