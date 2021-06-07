@@ -11,6 +11,7 @@ object Injection {
         val firebaseAuth = Firebase.auth
         val firestore= FirebaseFirestore.getInstance()
 
+
         return UserRepository.getInstance(firebaseAuth,firestore)
     }
 }
