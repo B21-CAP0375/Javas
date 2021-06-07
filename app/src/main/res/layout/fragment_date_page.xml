@@ -73,4 +73,16 @@
         app:layout_constraintTop_toBottomOf="@+id/date_edt"
         android:contentDescription="@string/icon2" />
 
+    <Button
+        android:id="@+id/btn_batal_vaksin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/batal_vaksinasi"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hospital_edt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

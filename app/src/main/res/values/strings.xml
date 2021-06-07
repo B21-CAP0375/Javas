@@ -126,7 +126,7 @@
 
 
     <!--vaccine date-->
-    <string name="daftar_vaksin">Daftar Vaskin</string>
+    <string name="daftar_vaksin"><b>Daftar Vaskin</b></string>
     <string name="daftar_tgl">Pilih Tanggal</string>
     <string name="pilih_hospital">Pilih Rumah Sakit</string>
 
@@ -136,6 +136,7 @@
     <string name="list_date_registered_people">Jumlah orang terdaftar</string>
     <string name="icon1">icon1</string>
     <string name="icon2">icon2</string>
+    <string name="batal_vaksinasi">Batal Vaksinasi</string>
 
 
 </resources>

@@ -528,7 +528,10 @@
         <argument
             android:name="name"
             app:argType="string"
-            android:defaultValue="Empty" />
+            android:defaultValue="name" />
+        <action
+            android:id="@+id/action_datePageFragment_to_homePageFragment2"
+            app:destination="@id/homePageFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultPositiveFragment"
