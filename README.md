@@ -19,4 +19,4 @@ Machine Learning Implementation
 1.Modeling using Keras with Supervised Algorithm (Neural Network)
 2.Using pandas to represent data frames. balances the dataset from 4:1 to 1:1. Divide the data into training and testing datasets using Sklearn with test_size = 0.2
 3.Train the model and generate a file with .h5 format then convert it to .tflite to be implemented on android
-4.the data obtained after testing and training reach 98% accuracy.
+4.the data obtained after testing and training reach 97% for accuracy training and 98% for validation accuracy 
