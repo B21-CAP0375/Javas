@@ -32,3 +32,5 @@ def hello_world(request):
     response_json = {"data" : prediction}
 
     return json.dumps(response_json)
+    
+   
